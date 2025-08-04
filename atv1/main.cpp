@@ -152,8 +152,9 @@ void carregar_lista_de_alunos(Alunos *alunos, const string nome_arquivo) {
         colunas.emplace_back(linha.substr(inicio));
 
         Aluno *novo_aluno = new Aluno{NULL, NULL, colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6]};
-        // cout << novo_aluno->matricula << endl;
-        inserir_simples(alunos, novo_aluno);
+        cout << novo_aluno->matricula << endl;
+        // inserir_simples(alunos, novo_aluno);
+        inserir_ordenado(alunos, novo_aluno);
     }
 }
 
@@ -194,8 +195,8 @@ void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const stri
 
 int main() {
     Alunos *alunos = new Alunos{NULL, NULL, 0};
-    carregar_lista_de_alunos(alunos, "../alunos_completos.csv");
-
+    carregar_lista_de_alunos(alunos, "../alunos.csv");
+    imprime_alunos(alunos);
     int opcao;
 
     do {

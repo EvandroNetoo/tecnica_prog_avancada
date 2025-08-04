@@ -1,0 +1,1001 @@
+Matricula,CPF,Nome,Nota,Idade,Curso,Cidade
+A0000000,915.216.859-08,Wallace Sampaio,20.35,23,Direito,Rio de Janeiro
+A0000001,436.309.490-70,Gabriela Silva,98.08,26,Psicologia,Porto Alegre
+A0000002,848.690.759-46,Caio Almeida,99.53,29,Biologia,Brasília
+A0000003,388.064.890-54,Eduarda Conceição,66.31,30,Direito,São Paulo
+A0000004,009.789.066-91,Adriel Medeiros,47.91,27,Arquitetura,Porto Alegre
+A0000005,533.886.451-75,Elaine Torres,34.16,29,Medicina,Recife
+A0000006,909.195.768-93,Marcelo Garcia,93.64,29,Biologia,São Paulo
+A0000007,763.419.396-80,Francisco Dutra,23.33,30,Computação,Manaus
+A0000008,282.617.107-00,Roberta Gaspar,89.6,19,Psicologia,São Paulo
+A0000009,186.958.808-85,Antonio Gaspar,31.5,22,Administração,Porto Alegre
+A0000010,982.151.525-89,Raquel Dias,91.4,29,Psicologia,Curitiba
+A0000011,013.970.386-16,Emerson Saraiva,71.73,27,Direito,Salvador
+A0000012,985.036.913-29,Vitória Batista,58.76,18,Biologia,Brasília
+A0000013,757.452.623-03,Yasmin Dutra,21.34,21,Computação,Rio de Janeiro
+A0000014,999.703.592-58,Arthur Henriques,13.56,28,Biologia,São Paulo
+A0000015,445.054.631-84,Cássio Souza,97.29,24,Arquitetura,Manaus
+A0000016,142.352.241-90,Ingrid Araújo,88.45,19,Engenharia,Rio de Janeiro
+A0000017,817.587.494-58,Gabriel Sampaio,45.57,24,Medicina,Rio de Janeiro
+A0000018,526.342.749-20,Frederico Torres,77.39,23,Administração,Porto Alegre
+A0000019,901.092.161-13,Aline Dias,81.76,26,Arquitetura,Brasília
+A0000020,001.283.825-03,Fernanda Medeiros,71.72,22,Administração,Belo Horizonte
+A0000021,402.723.871-00,Vinícius Oliveira,10.02,21,Engenharia,São Paulo
+A0000022,125.109.246-21,Luiz Carneiro,76.86,27,Administração,Rio de Janeiro
+A0000023,655.848.461-71,Rodrigo Nogueira,38.94,17,Psicologia,Rio de Janeiro
+A0000024,400.038.565-85,Samuel Andrade,60.29,21,Biologia,Manaus
+A0000025,916.869.174-22,Marcos Gaspar,22.12,19,Direito,Rio de Janeiro
+A0000026,867.845.675-28,Fernanda Vieira,60.21,20,Engenharia,Belo Horizonte
+A0000027,224.049.190-67,Patrícia Conceição,46.56,25,Medicina,São Paulo
+A0000028,994.485.671-11,Flávia Sampaio,43.4,21,Computação,Recife
+A0000029,815.447.727-00,Isaque Silva,68.93,18,Engenharia,Rio de Janeiro
+A0000030,653.069.634-20,Rafael Machado,69.45,27,Computação,Curitiba
+A0000031,018.582.084-08,José Carvalho,93.53,28,Administração,Manaus
+A0000032,234.108.516-40,Cátia Nogueira,48.83,30,Psicologia,Manaus
+A0000033,583.120.631-96,Sandra Sampaio,52.42,17,Direito,São Paulo
+A0000034,883.132.016-57,Frederico Machado,42.57,29,Direito,Brasília
+A0000035,095.126.521-02,Joana Queiroz,69.48,30,Psicologia,Belo Horizonte
+A0000036,262.323.406-04,Francisco Lopes,2.51,19,Engenharia,São Paulo
+A0000037,135.375.041-87,Joana Mendes,91.65,25,Arquitetura,Belo Horizonte
+A0000038,934.126.082-54,Gabriela Sampaio,11.82,28,Arquitetura,Rio de Janeiro
+A0000039,295.710.524-18,Guilherme Cavalcante,91.36,18,Biologia,Salvador
+A0000040,185.593.087-09,Gabriel Ribeiro,8.17,26,Biologia,São Paulo
+A0000041,621.976.874-41,Julio Almeida,78.55,29,Direito,Porto Alegre
+A0000042,398.251.766-44,Renan Carvalho,54.08,24,Direito,Recife
+A0000043,243.793.636-00,Rodrigo Farias,65.89,21,Computação,Salvador
+A0000044,029.114.171-43,Otávio Gonçalves,92.48,27,Direito,Brasília
+A0000045,667.114.731-08,Stephanie Soares,50.18,23,Psicologia,São Paulo
+A0000046,946.835.693-02,Vitória Pacheco,6.94,23,Arquitetura,Porto Alegre
+A0000047,595.500.888-80,Fernanda Barbosa,79.5,26,Arquitetura,Porto Alegre
+A0000048,689.448.363-96,Samuel Henriques,25.02,21,Computação,Curitiba
+A0000049,256.681.785-52,Sandra Branco,98.84,23,Administração,São Paulo
+A0000050,775.908.072-73,Igor Cavalcante,17.21,28,Psicologia,Belo Horizonte
+A0000051,829.085.122-70,Sérgio Miranda,28.02,29,Engenharia,Brasília
+A0000052,687.145.715-10,Natália Ribeiro,68.77,21,Psicologia,Rio de Janeiro
+A0000053,953.574.897-18,Aline Henriques,71.27,27,Direito,Rio de Janeiro
+A0000054,072.416.072-87,Ana Cardoso,58.07,26,Engenharia,Porto Alegre
+A0000055,585.611.490-60,Natália Souza,35.2,29,Direito,Salvador
+A0000056,061.311.682-88,Jéssica Assis,68.46,17,Medicina,Manaus
+A0000057,396.607.536-91,Clara Garcia,66.45,27,Direito,Manaus
+A0000058,252.012.534-90,Manuela Cavalcante,78.65,26,Administração,Manaus
+A0000059,668.098.741-51,Luciana Ferraz,97.6,23,Biologia,Curitiba
+A0000060,449.131.276-16,Aline Costa,94.01,30,Medicina,Rio de Janeiro
+A0000061,210.699.810-44,Flávia Padilha,42.87,29,Biologia,Rio de Janeiro
+A0000062,700.607.596-31,Nathan Nogueira,97.49,17,Computação,Salvador
+A0000063,062.664.387-20,Lucas Figueiredo,12.8,21,Computação,Salvador
+A0000064,129.011.678-45,Carolina Costa,69.41,24,Psicologia,Manaus
+A0000065,571.459.660-93,Igor Vieira,53.51,25,Psicologia,Rio de Janeiro
+A0000066,060.057.788-03,Estevão Albuquerque,36.51,28,Arquitetura,Brasília
+A0000067,819.195.667-59,Douglas Souza,1.79,25,Administração,Belo Horizonte
+A0000068,401.702.054-28,André Padilha,22.45,26,Biologia,Brasília
+A0000069,237.067.242-00,Helena Magalhães,66.02,23,Arquitetura,Salvador
+A0000070,526.783.472-65,Hélio Vasconcelos,74.84,18,Arquitetura,Recife
+A0000071,402.572.032-90,Julio Miranda,78.29,29,Direito,Porto Alegre
+A0000072,427.270.249-16,Ricardo Nogueira,61.2,30,Psicologia,Recife
+A0000073,583.207.478-56,Samuel Machado,39.86,27,Computação,Rio de Janeiro
+A0000074,278.872.975-83,Gabriela Chagas,91.06,27,Medicina,Rio de Janeiro
+A0000075,808.169.450-12,Carolina Neves,92.84,24,Engenharia,Porto Alegre
+A0000076,015.276.934-06,Thiago Henriques,38.16,30,Biologia,Belo Horizonte
+A0000077,979.316.476-02,Paula Saraiva,26.02,19,Medicina,Brasília
+A0000078,953.663.514-30,Frederico Chagas,83.36,18,Computação,Recife
+A0000079,201.619.434-03,Wagner Campos,68.28,20,Biologia,Brasília
+A0000080,542.287.684-90,Daniel Valente,76.61,18,Biologia,Manaus
+A0000081,011.115.555-08,Luiz Pinheiro,61.42,22,Engenharia,Brasília
+A0000082,636.713.387-92,Talita Tavares,33.45,28,Biologia,Curitiba
+A0000083,038.347.892-83,Marina Soares,78.95,29,Computação,Belo Horizonte
+A0000084,973.871.885-64,Erick Cardoso,41.01,30,Engenharia,Brasília
+A0000085,367.446.433-04,Clara Barros,95.59,17,Biologia,Porto Alegre
+A0000086,519.580.598-97,Marcos Souza,47.78,21,Arquitetura,São Paulo
+A0000087,647.863.332-20,Erick Farias,55.8,21,Arquitetura,Belo Horizonte
+A0000088,473.873.003-72,Tatiane Ferraz,74.36,27,Biologia,São Paulo
+A0000089,263.314.951-00,Juliana Maia,33.05,22,Computação,Salvador
+A0000090,928.219.480-93,Manuela Pacheco,18.36,17,Arquitetura,Curitiba
+A0000091,801.370.067-48,Ricardo Assis,96.31,30,Computação,Salvador
+A0000092,367.152.836-21,Eduarda Andrade,72.64,18,Administração,Salvador
+A0000093,017.883.842-02,Jorge Barbosa,37.5,22,Arquitetura,Belo Horizonte
+A0000094,775.077.923-07,Julio Campos,89.97,17,Arquitetura,São Paulo
+A0000095,049.329.809-65,Melissa Araújo,33.78,21,Direito,Brasília
+A0000096,091.368.730-80,Renan Alves,97.84,23,Administração,Recife
+A0000097,514.822.561-00,Vitor Silva,37.14,28,Arquitetura,São Paulo
+A0000098,947.425.401-07,João Rocha,38.41,22,Arquitetura,Porto Alegre
+A0000099,142.499.914-66,Felipe Guimarães,19.17,19,Biologia,Brasília
+A0000100,064.988.947-92,Camila Souza,32.62,20,Medicina,Manaus
+A0000101,762.854.021-08,Sérgio Morais,74.99,21,Administração,Manaus
+A0000102,578.719.230-30,Marcela Ribeiro,15.33,21,Biologia,Curitiba
+A0000103,977.924.246-50,Luiz Maciel,9.29,18,Administração,Manaus
+A0000104,833.427.712-16,Gustavo Miranda,85.49,26,Arquitetura,Recife
+A0000105,598.683.030-01,Marcela Duarte,45.23,19,Medicina,Manaus
+A0000106,284.939.658-39,Henrique Borges,27.05,23,Medicina,Curitiba
+A0000107,234.680.611-02,Alexandre Farias,66.53,26,Arquitetura,Manaus
+A0000108,485.231.026-20,Clara Andrade,43.61,28,Arquitetura,São Paulo
+A0000109,724.902.069-23,Carla Gaspar,36.54,26,Computação,Porto Alegre
+A0000110,039.416.547-05,Paulo Borges,52.37,30,Direito,Recife
+A0000111,562.592.166-02,Davi Moura,46.3,28,Administração,Recife
+A0000112,748.360.436-03,Rafael Lima,58.58,25,Administração,Porto Alegre
+A0000113,227.128.586-03,Murilo Pimentel,96.11,25,Medicina,Salvador
+A0000114,065.772.217-07,Lúcia Mendes,78.55,24,Administração,São Paulo
+A0000115,557.016.822-26,Jackson Cardoso,14.03,26,Direito,Recife
+A0000116,818.895.457-83,Larissa Farias,59.2,19,Engenharia,Brasília
+A0000117,253.080.440-07,Carla Oliveira,66.8,29,Engenharia,Curitiba
+A0000118,356.291.233-19,Levi Dias,18.58,24,Psicologia,Curitiba
+A0000119,898.294.106-17,Débora Campos,88.03,28,Arquitetura,São Paulo
+A0000120,400.178.306-13,Jackson Ferraz,36.97,21,Medicina,Rio de Janeiro
+A0000121,517.196.718-00,Adriel Peixoto,25.97,29,Biologia,Rio de Janeiro
+A0000122,716.526.559-72,Letícia Medeiros,27.43,18,Engenharia,São Paulo
+A0000123,094.599.553-98,Bruna Pacheco,48.49,22,Arquitetura,Porto Alegre
+A0000124,657.320.890-04,Renata Moreira,89.17,28,Psicologia,Curitiba
+A0000125,189.283.911-30,Ivan Garcia,50.2,28,Psicologia,São Paulo
+A0000126,549.714.048-30,Gabriel Maia,80.05,17,Arquitetura,Salvador
+A0000127,663.623.064-90,João Vasconcelos,33.61,25,Arquitetura,São Paulo
+A0000128,758.403.457-84,Pedro Maia,38.9,24,Engenharia,Salvador
+A0000129,978.124.267-18,Ricardo Guimarães,19.64,24,Biologia,Curitiba
+A0000130,084.357.355-40,Fernanda Maia,51.83,17,Computação,Salvador
+A0000131,715.563.936-28,Lúcia Conceição,20.48,17,Computação,Porto Alegre
+A0000132,257.530.083-56,Leonardo Oliveira,88.71,27,Administração,Rio de Janeiro
+A0000133,704.764.549-72,Michael Batista,88.62,24,Direito,São Paulo
+A0000134,060.731.921-69,Luciana Valente,35.54,23,Arquitetura,Salvador
+A0000135,503.596.687-98,Carolina Portela,54.6,27,Direito,São Paulo
+A0000136,915.919.438-33,Diego Jesus,46.73,30,Direito,Salvador
+A0000137,880.669.682-30,Erick Souza,1.87,28,Biologia,Brasília
+A0000138,492.180.069-32,Felipe Ferraz,63.31,19,Arquitetura,Belo Horizonte
+A0000139,016.402.914-15,Marcela Monteiro,32.19,29,Engenharia,Salvador
+A0000140,716.101.428-02,Larissa Dutra,4.91,22,Engenharia,Belo Horizonte
+A0000141,135.564.697-90,Matheus Brandão,47.74,24,Direito,Porto Alegre
+A0000142,166.554.154-70,Antonio Ferraz,45.64,24,Psicologia,Curitiba
+A0000143,612.400.055-55,Felipe Rocha,45.45,25,Medicina,Manaus
+A0000144,402.077.451-02,Cássio Figueiredo,25.5,26,Direito,Porto Alegre
+A0000145,165.965.687-76,Erick Santos,24.54,23,Direito,Porto Alegre
+A0000146,325.448.667-64,Helena Pacheco,3.95,20,Biologia,Recife
+A0000147,595.119.193-93,Emerson Sampaio,48.76,24,Computação,Recife
+A0000148,154.549.012-02,Rafael Gonçalves,25.05,18,Computação,Salvador
+A0000149,815.131.908-90,Beatriz Cardoso,0.83,20,Biologia,Porto Alegre
+A0000150,121.982.568-94,Clara Pimentel,78.31,17,Biologia,Recife
+A0000151,637.673.634-37,Renata Gaspar,27.08,25,Arquitetura,Curitiba
+A0000152,016.468.008-00,Marcos Viana,92.57,24,Psicologia,Salvador
+A0000153,091.805.744-24,Hugo Almeida,3.0,23,Computação,Rio de Janeiro
+A0000154,222.310.839-30,Aline Carvalho,73.58,29,Direito,Belo Horizonte
+A0000155,961.764.360-01,Otávio Andrade,32.19,18,Biologia,Curitiba
+A0000156,355.014.677-98,Beatriz Rodrigues,37.43,19,Psicologia,Salvador
+A0000157,545.219.128-34,Melissa Reis,76.34,27,Direito,Brasília
+A0000158,691.600.985-38,Yasmin Antunes,52.27,27,Administração,Recife
+A0000159,062.663.600-04,Paulo Teixeira,6.09,29,Medicina,São Paulo
+A0000160,233.012.007-96,Caio Nascimento,78.32,19,Direito,São Paulo
+A0000161,305.430.998-30,Renan Carvalho,71.2,26,Arquitetura,Salvador
+A0000162,589.855.295-28,Hugo Portela,77.21,22,Arquitetura,Belo Horizonte
+A0000163,488.302.695-73,Daniel Almeida,25.31,27,Biologia,Manaus
+A0000164,039.440.381-93,Cássio Castro,47.58,30,Arquitetura,São Paulo
+A0000165,519.278.610-04,Marcela Garcia,13.39,19,Arquitetura,São Paulo
+A0000166,141.051.361-00,Isabela Pacheco,23.88,23,Arquitetura,Curitiba
+A0000167,316.814.081-39,Pedro Neves,56.78,19,Engenharia,Belo Horizonte
+A0000168,072.355.786-10,Gabriela Gaspar,59.79,18,Engenharia,Rio de Janeiro
+A0000169,918.627.894-01,Pedro Maciel,93.62,27,Engenharia,Brasília
+A0000170,081.990.544-50,Maurício Gomes,1.39,18,Medicina,Brasília
+A0000171,399.959.552-37,Leonardo Maciel,59.33,20,Psicologia,Manaus
+A0000172,896.291.444-17,Davi Araújo,71.08,18,Direito,São Paulo
+A0000173,912.934.931-12,Henrique Nascimento,89.45,28,Engenharia,Rio de Janeiro
+A0000174,390.694.930-39,Cristiane Santos,41.12,28,Psicologia,Brasília
+A0000175,494.301.163-20,José Andrade,71.37,18,Direito,Rio de Janeiro
+A0000176,808.045.599-61,Vanessa Dutra,21.94,23,Psicologia,Porto Alegre
+A0000177,358.262.198-74,Felipe Souza,58.46,21,Medicina,Curitiba
+A0000178,562.073.505-29,Evandro Melo,28.47,17,Computação,São Paulo
+A0000179,000.029.283-45,Eliane Bastos,47.98,20,Medicina,Porto Alegre
+A0000180,009.306.205-26,Renan Pereira,72.98,18,Medicina,Salvador
+A0000181,671.504.762-60,Rodrigo Melo,20.77,19,Engenharia,Porto Alegre
+A0000182,370.208.956-03,Giselle Araújo,19.21,30,Biologia,Recife
+A0000183,750.189.506-68,Guilherme Borges,63.73,20,Medicina,Belo Horizonte
+A0000184,809.196.023-98,Flávia Sampaio,20.65,25,Psicologia,Manaus
+A0000185,309.340.850-48,Renata Teixeira,52.76,21,Engenharia,Recife
+A0000186,758.783.446-02,Roberta Gomes,78.74,25,Direito,Brasília
+A0000187,613.038.362-20,Michele Teixeira,83.42,20,Direito,São Paulo
+A0000188,207.471.709-16,Marcos Cunha,70.37,27,Administração,Brasília
+A0000189,341.086.858-57,Eliane Ramos,18.33,23,Direito,Curitiba
+A0000190,336.737.897-67,Maurício Pinheiro,50.15,27,Engenharia,Brasília
+A0000191,795.224.144-33,Isabela Gomes,81.14,25,Biologia,Porto Alegre
+A0000192,727.783.238-80,Joana Farias,86.27,20,Direito,Recife
+A0000193,872.561.845-81,Vitor Ramos,90.64,26,Psicologia,Belo Horizonte
+A0000194,960.918.127-93,Leonardo Brandão,34.45,17,Medicina,Curitiba
+A0000195,367.548.495-50,Ivan Cardoso,59.5,19,Medicina,Rio de Janeiro
+A0000196,472.434.686-83,Yasmin Xavier,94.78,27,Psicologia,Rio de Janeiro
+A0000197,504.923.312-78,Evandro Azevedo,92.85,23,Medicina,Rio de Janeiro
+A0000198,452.289.799-56,Wagner Barbosa,89.2,20,Medicina,São Paulo
+A0000199,619.435.008-35,Igor Pereira,89.4,17,Administração,Curitiba
+A0000200,328.106.358-62,Patrícia Machado,84.55,22,Biologia,Brasília
+A0000201,965.785.029-04,Levi Cunha,91.11,20,Engenharia,Recife
+A0000202,381.701.106-70,Luiz Vasconcelos,16.33,28,Administração,Recife
+A0000203,968.794.785-30,Lúcia Magalhães,39.56,27,Engenharia,Rio de Janeiro
+A0000204,084.258.052-28,Stephanie Antunes,14.92,25,Engenharia,Recife
+A0000205,673.040.979-73,Roberta Ramos,22.44,29,Administração,Porto Alegre
+A0000206,515.520.389-98,Levi Teixeira,51.39,19,Psicologia,Belo Horizonte
+A0000207,956.433.491-83,Isaque Lima,27.96,22,Engenharia,Porto Alegre
+A0000208,811.799.918-85,Vitória Castro,74.2,23,Arquitetura,Curitiba
+A0000209,146.800.990-70,José Conceição,24.86,30,Psicologia,Belo Horizonte
+A0000210,227.662.675-57,Letícia Antunes,63.51,27,Computação,Brasília
+A0000211,499.583.103-76,Felipe Cunha,41.34,25,Medicina,Curitiba
+A0000212,193.414.970-51,Juliana Souza,24.74,18,Computação,Manaus
+A0000213,420.347.255-57,Alan Carneiro,35.51,23,Computação,Belo Horizonte
+A0000214,492.672.462-67,Karen Azevedo,9.78,19,Arquitetura,Rio de Janeiro
+A0000215,878.690.516-32,Lúcia Vasconcelos,99.85,22,Direito,Rio de Janeiro
+A0000216,692.434.998-66,Francisco Morais,64.47,21,Engenharia,Rio de Janeiro
+A0000217,603.546.033-02,Amanda Xavier,98.41,20,Engenharia,Rio de Janeiro
+A0000218,040.113.014-26,Nathan Garcia,76.3,28,Direito,Recife
+A0000219,296.436.735-37,Letícia Batista,60.92,28,Psicologia,Belo Horizonte
+A0000220,836.031.590-63,Rodrigo Moura,95.77,27,Direito,Brasília
+A0000221,135.689.134-96,Juliana Jesus,95.64,23,Psicologia,Porto Alegre
+A0000222,884.934.733-24,Murilo Sampaio,82.13,18,Arquitetura,São Paulo
+A0000223,417.486.850-66,Maurício Garcia,29.34,23,Direito,Belo Horizonte
+A0000224,939.537.262-18,Luciana Cavalcante,13.78,17,Administração,Salvador
+A0000225,420.509.386-16,Talita Magalhães,59.5,26,Engenharia,Manaus
+A0000226,133.013.527-07,Isaque Moura,2.63,26,Computação,Manaus
+A0000227,781.674.428-53,Gustavo Reis,31.83,21,Administração,Brasília
+A0000228,128.627.741-89,Diego Cruz,87.87,23,Biologia,Salvador
+A0000229,448.850.290-31,Marcos Gaspar,49.65,26,Psicologia,Curitiba
+A0000230,152.751.905-81,Hélio Pimentel,34.12,23,Direito,Brasília
+A0000231,731.347.702-37,Bruno Torres,79.15,25,Administração,Brasília
+A0000232,589.670.146-27,Ana Andrade,30.62,23,Computação,Porto Alegre
+A0000233,027.859.768-86,Gabriel Pereira,23.0,22,Administração,Curitiba
+A0000234,599.568.950-91,Hélio Neves,11.19,24,Direito,Belo Horizonte
+A0000235,592.650.373-69,Wagner Antunes,85.77,27,Computação,Curitiba
+A0000236,607.769.009-00,Alexandre Chagas,76.96,27,Computação,Manaus
+A0000237,047.717.887-15,Evandro Costa,33.0,23,Medicina,Porto Alegre
+A0000238,620.154.243-42,Amanda Maciel,88.13,25,Engenharia,São Paulo
+A0000239,814.945.145-59,Michael Medeiros,94.48,27,Arquitetura,Belo Horizonte
+A0000240,840.342.736-07,Eliane Souza,68.84,27,Direito,Salvador
+A0000241,717.975.367-02,Lúcia Novaes,20.5,27,Biologia,São Paulo
+A0000242,726.021.747-26,Gabriel Ribeiro,63.66,18,Medicina,Curitiba
+A0000243,071.518.843-70,Marcela Henriques,44.4,28,Engenharia,Manaus
+A0000244,410.495.802-65,Cláudio Dias,80.51,19,Medicina,Recife
+A0000245,423.620.343-05,Natália Vasconcelos,95.93,25,Psicologia,Recife
+A0000246,279.854.729-67,Adriel Viana,37.11,23,Computação,Recife
+A0000247,488.274.419-80,Abner Ramos,75.19,29,Computação,Recife
+A0000248,001.084.542-90,Marcos Medeiros,22.03,27,Engenharia,Curitiba
+A0000249,164.767.087-08,Roberto Gonçalves,39.2,20,Engenharia,Recife
+A0000250,641.796.530-95,Helena Rocha,34.67,21,Psicologia,Rio de Janeiro
+A0000251,862.303.785-58,Giselle Saraiva,72.44,21,Computação,Salvador
+A0000252,208.493.910-08,Paulo Machado,50.48,28,Administração,São Paulo
+A0000253,489.591.418-60,Priscila Figueiredo,9.77,29,Biologia,São Paulo
+A0000254,239.875.603-39,Michele Cavalcante,33.23,27,Direito,Brasília
+A0000255,864.059.767-77,Flávia Neves,82.7,28,Medicina,São Paulo
+A0000256,900.229.025-03,Emerson Freitas,78.9,29,Psicologia,Rio de Janeiro
+A0000257,164.786.888-28,Vitor Araújo,13.37,30,Computação,Belo Horizonte
+A0000258,328.899.938-25,Emerson Cardoso,60.81,29,Administração,Brasília
+A0000259,926.560.956-70,Henrique Barros,10.95,30,Administração,Salvador
+A0000260,726.838.219-72,José Fonseca,8.18,17,Medicina,Brasília
+A0000261,391.148.500-01,Douglas Oliveira,11.71,24,Medicina,Manaus
+A0000262,947.040.663-04,Bruna Soares,64.81,23,Direito,Salvador
+A0000263,347.997.890-82,Fernando Tavares,9.98,19,Medicina,Recife
+A0000264,923.790.950-00,Cristiane Ramos,51.82,20,Administração,Rio de Janeiro
+A0000265,051.972.089-02,Diego Campos,35.77,21,Psicologia,Salvador
+A0000266,252.529.535-89,Eliane Teixeira,26.67,24,Administração,Porto Alegre
+A0000267,084.996.483-04,Amanda Brandão,89.38,19,Biologia,Rio de Janeiro
+A0000268,261.491.108-93,Raquel Sampaio,7.4,25,Administração,Salvador
+A0000269,639.772.732-72,Raquel Ferreira,58.71,22,Engenharia,São Paulo
+A0000270,203.120.485-80,Carla Melo,21.04,22,Computação,Rio de Janeiro
+A0000271,896.801.236-93,Fernando Barros,72.82,22,Engenharia,Salvador
+A0000272,524.864.869-68,Joana Ferraz,19.62,24,Administração,Recife
+A0000273,027.415.501-07,Daniel Mendes,98.18,30,Engenharia,Curitiba
+A0000274,725.817.292-01,Vinícius Ramos,14.02,21,Arquitetura,Belo Horizonte
+A0000275,590.062.907-42,Alex Padilha,97.52,19,Medicina,Curitiba
+A0000276,781.631.774-38,Natália Brandão,40.87,24,Direito,Curitiba
+A0000277,105.001.766-80,Daniela Padilha,51.29,19,Arquitetura,Recife
+A0000278,075.412.996-93,Guilherme Bastos,24.91,23,Engenharia,Manaus
+A0000279,519.984.734-14,Diego Azevedo,17.29,20,Direito,Belo Horizonte
+A0000280,790.426.981-36,Douglas Pinheiro,44.52,18,Medicina,Manaus
+A0000281,737.325.247-87,Simone Borges,49.79,19,Direito,Manaus
+A0000282,643.164.885-46,Sérgio Machado,54.59,22,Biologia,Porto Alegre
+A0000283,702.314.846-90,Felipe Dutra,88.09,23,Computação,Recife
+A0000284,158.010.720-63,Roberta Ferraz,63.38,26,Direito,Porto Alegre
+A0000285,921.427.210-79,Frederico Barbosa,55.5,20,Direito,Brasília
+A0000286,569.069.778-81,Gustavo Fonseca,65.42,21,Direito,Salvador
+A0000287,986.091.795-75,Rodrigo Fonseca,80.32,27,Direito,Brasília
+A0000288,915.313.569-58,Eliane Pacheco,89.82,27,Computação,Brasília
+A0000289,857.544.023-33,Jorge Pimentel,23.32,26,Direito,Salvador
+A0000290,071.846.757-46,Felipe Azevedo,71.0,24,Arquitetura,Salvador
+A0000291,292.893.439-15,Maurício Pereira,28.34,20,Computação,São Paulo
+A0000292,295.076.250-62,Ricardo Conceição,59.42,26,Arquitetura,Belo Horizonte
+A0000293,109.629.616-04,Ricardo Morais,33.66,23,Medicina,São Paulo
+A0000294,516.785.855-05,Carolina Chagas,21.77,29,Engenharia,Porto Alegre
+A0000295,311.066.678-24,Marcela Aguiar,33.94,29,Administração,Recife
+A0000296,149.009.681-70,Estevão Campos,29.63,19,Medicina,Porto Alegre
+A0000297,507.061.019-87,Thiago Reis,13.27,20,Computação,Recife
+A0000298,555.666.240-14,Felipe Padilha,0.69,18,Computação,Belo Horizonte
+A0000299,336.285.197-56,Lucas Henriques,49.54,30,Biologia,São Paulo
+A0000300,619.936.067-26,Enzo Ramos,67.52,26,Engenharia,Belo Horizonte
+A0000301,045.496.798-59,Beatriz Reis,35.97,29,Arquitetura,São Paulo
+A0000302,767.901.423-04,Marcela Freitas,88.16,25,Administração,Salvador
+A0000303,332.058.072-86,Sandra Teixeira,68.29,29,Biologia,Rio de Janeiro
+A0000304,406.055.223-24,Roberta Cruz,41.36,28,Medicina,São Paulo
+A0000305,157.986.404-00,Roberta Tavares,66.9,22,Engenharia,Porto Alegre
+A0000306,282.607.736-86,Elaine Batista,11.22,25,Direito,Recife
+A0000307,350.795.869-40,Luciana Branco,31.55,20,Biologia,Rio de Janeiro
+A0000308,864.025.546-69,Vinícius Costa,59.58,27,Medicina,Manaus
+A0000309,540.163.387-43,Natália Valente,63.06,18,Medicina,Belo Horizonte
+A0000310,603.389.914-84,Raquel Costa,19.4,20,Computação,Manaus
+A0000311,847.347.021-44,Juliana Farias,49.76,28,Psicologia,Rio de Janeiro
+A0000312,108.283.844-60,Gustavo Maia,43.56,19,Arquitetura,Salvador
+A0000313,110.324.696-84,Roberta Cunha,40.57,26,Computação,Brasília
+A0000314,101.367.740-40,Isaque Rodrigues,96.88,20,Psicologia,Manaus
+A0000315,660.306.969-55,Yasmin Araújo,97.72,24,Administração,Salvador
+A0000316,579.772.908-39,Roberto Antunes,86.67,17,Medicina,Brasília
+A0000317,448.851.721-87,Daniel Miranda,30.5,29,Arquitetura,Porto Alegre
+A0000318,354.138.704-18,Melissa Pereira,71.19,20,Engenharia,São Paulo
+A0000319,434.523.703-30,Vanessa Neves,78.54,21,Engenharia,Recife
+A0000320,735.222.880-25,Ana Figueira,75.5,30,Biologia,Rio de Janeiro
+A0000321,419.213.599-00,Samuel Carvalho,4.88,24,Direito,Manaus
+A0000322,761.764.188-52,Carla Peixoto,63.41,22,Direito,Recife
+A0000323,338.906.603-98,Elaine Rocha,98.63,28,Psicologia,Belo Horizonte
+A0000324,802.408.770-71,Elaine Cavalcante,74.36,23,Direito,Salvador
+A0000325,946.654.294-05,Isabela Santos,56.09,29,Engenharia,São Paulo
+A0000326,128.630.552-75,Julio Xavier,25.48,22,Direito,Salvador
+A0000327,246.420.528-10,Patrícia Neves,87.28,20,Medicina,Rio de Janeiro
+A0000328,560.344.888-18,Letícia Dias,77.92,25,Direito,Belo Horizonte
+A0000329,157.690.389-34,Ivan Queiroz,70.04,23,Administração,Recife
+A0000330,771.753.858-03,Yuri Farias,84.26,17,Arquitetura,Brasília
+A0000331,176.146.358-68,Leonardo Maia,59.58,22,Biologia,Manaus
+A0000332,361.915.117-28,Eliane Peixoto,57.54,27,Medicina,Curitiba
+A0000333,083.511.576-35,Maria Azevedo,11.77,24,Computação,Brasília
+A0000334,467.234.131-30,Vitória Cruz,77.77,26,Medicina,Rio de Janeiro
+A0000335,772.472.698-12,Antonio Magalhães,27.04,30,Medicina,Salvador
+A0000336,321.402.969-07,André Alves,84.86,22,Biologia,Curitiba
+A0000337,067.796.557-59,Yasmin Ribeiro,8.06,26,Medicina,Rio de Janeiro
+A0000338,227.620.972-07,Ivan Moreira,7.8,22,Direito,Porto Alegre
+A0000339,401.962.366-06,Talita Pereira,27.53,18,Computação,Curitiba
+A0000340,388.666.182-25,Gabriel Gomes,20.88,19,Administração,Curitiba
+A0000341,939.444.554-44,Maurício Xavier,38.85,26,Engenharia,Salvador
+A0000342,024.218.103-10,Marcela Nascimento,81.67,27,Psicologia,Curitiba
+A0000343,989.753.878-01,Melissa Andrade,24.52,18,Psicologia,Curitiba
+A0000344,840.754.603-80,Aline Tavares,46.82,26,Arquitetura,Manaus
+A0000345,822.797.156-35,Igor Neves,76.31,20,Arquitetura,Rio de Janeiro
+A0000346,714.104.633-03,Leonardo Barbosa,15.57,28,Direito,Belo Horizonte
+A0000347,915.177.802-50,Eliane Jesus,62.91,24,Computação,Belo Horizonte
+A0000348,446.900.501-04,Simone Peixoto,12.35,30,Computação,Rio de Janeiro
+A0000349,883.786.032-37,Giselle Silva,81.91,21,Computação,São Paulo
+A0000350,140.084.579-33,Yasmin Cardoso,77.02,28,Engenharia,São Paulo
+A0000351,725.754.681-91,Renata Peixoto,10.15,26,Medicina,Rio de Janeiro
+A0000352,438.514.755-85,Cláudio Gaspar,45.62,24,Direito,Porto Alegre
+A0000353,162.877.983-78,Arthur Queiroz,95.84,20,Computação,Porto Alegre
+A0000354,748.295.272-18,Carolina Soares,47.99,22,Engenharia,Salvador
+A0000355,824.564.283-58,André Peixoto,38.31,17,Direito,Salvador
+A0000356,594.934.432-48,Arthur Rocha,77.45,30,Medicina,Salvador
+A0000357,854.142.542-81,Rafael Cunha,74.14,19,Engenharia,Recife
+A0000358,539.848.454-05,Gustavo Guimarães,87.18,24,Psicologia,Manaus
+A0000359,680.283.015-92,Paulo Reis,42.32,30,Engenharia,Manaus
+A0000360,601.519.540-11,Roberto Duarte,12.06,18,Computação,São Paulo
+A0000361,248.147.267-59,Henrique Duarte,42.1,21,Computação,Salvador
+A0000362,761.939.169-03,Maria Freitas,82.08,26,Engenharia,Recife
+A0000363,738.469.085-41,Levi Branco,17.77,30,Arquitetura,Belo Horizonte
+A0000364,669.321.694-36,Bruno Peixoto,26.43,18,Direito,Recife
+A0000365,233.384.499-09,Michael Alves,66.63,21,Administração,Brasília
+A0000366,336.540.745-61,Frederico Carvalho,55.71,22,Psicologia,Rio de Janeiro
+A0000367,809.599.233-06,Sérgio Oliveira,17.36,19,Arquitetura,Brasília
+A0000368,120.731.410-21,Isabela Viana,58.93,30,Arquitetura,Porto Alegre
+A0000369,901.506.575-60,Murilo Vieira,76.31,19,Direito,Curitiba
+A0000370,318.924.356-59,Eduarda Pacheco,18.69,24,Medicina,São Paulo
+A0000371,080.749.899-84,Daniela Valente,71.35,27,Engenharia,Salvador
+A0000372,784.349.349-22,Levi Cruz,65.18,28,Psicologia,Brasília
+A0000373,800.760.636-07,William Teixeira,43.97,29,Direito,São Paulo
+A0000374,313.923.087-71,Jackson Saraiva,47.89,19,Arquitetura,Salvador
+A0000375,160.175.934-71,Cátia Aguiar,82.03,29,Administração,São Paulo
+A0000376,603.505.431-51,Vanessa Pimentel,7.12,28,Psicologia,Curitiba
+A0000377,408.082.947-76,Sérgio Duarte,83.15,21,Psicologia,Brasília
+A0000378,151.502.160-20,Isabela Moura,51.98,17,Biologia,Brasília
+A0000379,951.376.272-67,Joana Portela,16.92,26,Direito,São Paulo
+A0000380,772.154.392-40,Ingrid Conceição,96.13,29,Psicologia,Recife
+A0000381,607.147.870-78,Camila Maciel,73.31,25,Biologia,Salvador
+A0000382,735.735.437-74,Igor Torres,87.37,22,Engenharia,Belo Horizonte
+A0000383,180.797.960-17,Bruno Gonçalves,72.15,28,Engenharia,São Paulo
+A0000384,088.709.609-35,Estevão Melo,24.53,18,Biologia,Recife
+A0000385,489.820.479-13,Abner Portela,93.56,17,Psicologia,Curitiba
+A0000386,957.197.748-90,Gabriela Coelho,5.81,19,Medicina,Porto Alegre
+A0000387,555.880.456-45,Aline Oliveira,85.95,24,Psicologia,Porto Alegre
+A0000388,597.910.563-82,Julio Carneiro,25.76,28,Medicina,Curitiba
+A0000389,818.721.584-47,Evandro Morais,57.08,29,Engenharia,Curitiba
+A0000390,186.905.810-06,Luciana Melo,41.81,24,Engenharia,Brasília
+A0000391,655.453.707-49,Clara Campos,44.39,20,Administração,Belo Horizonte
+A0000392,057.450.265-37,Otávio Coelho,48.27,20,Direito,Brasília
+A0000393,201.804.286-67,Sandra Dias,24.92,21,Computação,Brasília
+A0000394,949.733.715-99,Emerson Vasconcelos,87.6,17,Psicologia,Curitiba
+A0000395,605.060.737-00,Roberto Rocha,16.78,22,Medicina,Porto Alegre
+A0000396,531.284.772-05,Débora Valente,80.46,27,Computação,Rio de Janeiro
+A0000397,568.181.134-43,Flávia Dias,14.34,27,Computação,Belo Horizonte
+A0000398,725.326.685-47,Cátia Peixoto,21.39,24,Engenharia,Porto Alegre
+A0000399,926.010.395-90,Sérgio Melo,85.35,17,Computação,Porto Alegre
+A0000400,262.620.625-30,Jorge Mendes,3.76,30,Computação,Brasília
+A0000401,528.080.194-16,Roberto Ribeiro,70.66,30,Biologia,Curitiba
+A0000402,691.689.113-00,Luiz Jesus,67.88,17,Engenharia,Belo Horizonte
+A0000403,561.319.487-47,Francisco Azevedo,86.44,27,Biologia,Brasília
+A0000404,817.245.203-93,Christian Moreira,37.71,18,Direito,Salvador
+A0000405,963.367.760-26,André Tavares,73.17,30,Arquitetura,Porto Alegre
+A0000406,534.791.646-09,Davi Araújo,29.38,30,Computação,Salvador
+A0000407,032.003.765-70,Nicole Reis,5.74,30,Biologia,Curitiba
+A0000408,897.083.827-95,Francisco Correia,46.57,17,Engenharia,Porto Alegre
+A0000409,022.125.477-30,Thiago Machado,46.66,30,Medicina,Recife
+A0000410,419.233.173-00,Levi Portela,73.2,24,Engenharia,São Paulo
+A0000411,009.024.232-74,Cássio Medeiros,49.42,26,Medicina,Rio de Janeiro
+A0000412,562.949.884-38,Igor Bastos,51.63,29,Direito,Porto Alegre
+A0000413,367.851.419-74,Fernanda Aguiar,75.09,17,Psicologia,Porto Alegre
+A0000414,396.289.160-92,Clara Batista,62.1,19,Administração,Belo Horizonte
+A0000415,798.617.885-06,Hélio Correia,30.68,17,Engenharia,São Paulo
+A0000416,286.764.747-96,Emerson Morais,59.99,27,Psicologia,Curitiba
+A0000417,632.215.835-08,Carlos Batista,32.17,23,Administração,Rio de Janeiro
+A0000418,774.274.343-40,Diego Gaspar,89.13,17,Computação,Brasília
+A0000419,058.856.802-30,Julio Oliveira,1.54,30,Direito,Rio de Janeiro
+A0000420,269.402.507-27,Cátia Barbosa,3.37,20,Direito,Rio de Janeiro
+A0000421,825.323.384-15,Thiago Lopes,95.02,20,Arquitetura,Brasília
+A0000422,233.060.142-57,Jorge Silva,20.03,25,Medicina,Recife
+A0000423,252.545.683-13,Isaque Padilha,2.64,22,Engenharia,Manaus
+A0000424,159.173.139-97,Vera Correia,85.04,26,Direito,Recife
+A0000425,709.042.477-40,Vanessa Saraiva,65.34,26,Medicina,Brasília
+A0000426,145.550.542-02,Fernando Soares,51.14,18,Administração,Salvador
+A0000427,404.513.674-64,Cássio Magalhães,0.85,19,Biologia,Belo Horizonte
+A0000428,178.930.041-00,Bruna Moura,13.73,25,Administração,Salvador
+A0000429,339.313.088-98,Ingrid Bastos,89.49,18,Arquitetura,Salvador
+A0000430,463.370.636-51,Arthur Barbosa,37.92,20,Computação,Recife
+A0000431,036.017.468-08,Fernanda Ribeiro,66.64,17,Biologia,Brasília
+A0000432,331.346.880-26,Cláudio Silva,90.35,19,Administração,Recife
+A0000433,605.172.508-37,Talita Batista,54.39,26,Administração,Curitiba
+A0000434,810.574.494-58,Jackson Figueiredo,26.78,25,Administração,Rio de Janeiro
+A0000435,714.190.743-26,Jéssica Gonçalves,60.62,26,Direito,Porto Alegre
+A0000436,559.589.305-24,Roberta Magalhães,57.56,20,Medicina,Salvador
+A0000437,632.248.266-14,Jorge Lima,16.75,17,Computação,São Paulo
+A0000438,540.663.446-15,Carla Machado,33.09,24,Computação,Porto Alegre
+A0000439,889.550.557-30,Clara Mendes,37.75,25,Medicina,Rio de Janeiro
+A0000440,416.044.511-06,Abner Guimarães,53.81,26,Psicologia,Rio de Janeiro
+A0000441,077.352.336-71,Marcelo Correia,2.02,17,Psicologia,Manaus
+A0000442,655.270.770-32,Carlos Figueira,72.39,22,Administração,Porto Alegre
+A0000443,475.556.125-69,Manuela Melo,4.67,28,Computação,Salvador
+A0000444,079.488.826-77,Frederico Andrade,62.21,26,Psicologia,Recife
+A0000445,814.758.004-52,Carolina Vieira,69.36,25,Biologia,Belo Horizonte
+A0000446,789.985.640-09,Henrique Monteiro,58.27,28,Administração,Rio de Janeiro
+A0000447,352.493.011-50,Matheus Peixoto,75.77,30,Computação,Rio de Janeiro
+A0000448,595.089.114-76,Hugo Lima,13.85,29,Psicologia,Salvador
+A0000449,441.594.476-00,Abner Fonseca,85.93,23,Computação,Belo Horizonte
+A0000450,497.971.796-99,William Carvalho,60.11,19,Medicina,Manaus
+A0000451,923.755.508-38,Vitor Freitas,18.57,21,Medicina,Porto Alegre
+A0000452,406.022.065-53,Carolina Viana,77.56,29,Administração,Manaus
+A0000453,206.010.421-15,Vinícius Chagas,86.1,27,Engenharia,Porto Alegre
+A0000454,577.308.880-09,Roberta Assis,68.32,30,Arquitetura,São Paulo
+A0000455,555.856.164-55,Michael Carvalho,67.04,20,Biologia,Manaus
+A0000456,081.928.990-63,Vitória Barbosa,81.17,28,Engenharia,Rio de Janeiro
+A0000457,118.227.427-73,Vinícius Soares,14.2,25,Biologia,Rio de Janeiro
+A0000458,945.456.169-33,Nicole Figueiredo,39.69,18,Direito,São Paulo
+A0000459,470.207.252-87,Vitória Peixoto,59.98,23,Biologia,Belo Horizonte
+A0000460,092.953.187-65,Abner Pinheiro,93.53,30,Biologia,Recife
+A0000461,165.230.773-73,Vitória Coelho,3.09,28,Computação,Porto Alegre
+A0000462,578.460.299-32,Priscila Cunha,75.64,18,Engenharia,Manaus
+A0000463,685.368.954-20,Flávia Maia,70.72,20,Arquitetura,Brasília
+A0000464,324.768.247-39,Gabriela Pimentel,28.17,24,Biologia,Recife
+A0000465,647.560.009-16,Rodrigo Saraiva,29.28,23,Psicologia,Recife
+A0000466,351.016.747-37,Roberto Moura,40.91,26,Arquitetura,Porto Alegre
+A0000467,551.048.479-93,Carlos Chagas,27.33,19,Direito,Salvador
+A0000468,890.386.973-76,Simone Padilha,11.93,30,Biologia,Belo Horizonte
+A0000469,467.906.554-09,Camila Fonseca,94.21,29,Psicologia,Rio de Janeiro
+A0000470,458.988.768-12,Letícia Nogueira,85.43,28,Engenharia,Salvador
+A0000471,803.563.376-77,Vera Soares,24.72,18,Biologia,Porto Alegre
+A0000472,560.041.068-95,Nicole Assis,2.03,20,Computação,São Paulo
+A0000473,710.173.167-83,Emerson Nascimento,63.03,20,Medicina,Belo Horizonte
+A0000474,478.137.592-81,Cláudio Ferreira,7.06,30,Computação,Porto Alegre
+A0000475,008.706.280-11,Jorge Melo,53.15,25,Psicologia,Porto Alegre
+A0000476,967.142.451-14,Alex Gonçalves,61.92,25,Psicologia,Recife
+A0000477,995.505.352-66,Leonardo Conceição,12.85,21,Psicologia,São Paulo
+A0000478,912.852.915-49,Priscila Duarte,62.44,30,Biologia,Rio de Janeiro
+A0000479,238.278.909-34,Natália Viana,33.46,17,Engenharia,Belo Horizonte
+A0000480,868.155.112-43,Maurício Mendes,61.63,22,Engenharia,Curitiba
+A0000481,499.986.133-02,Michele Vasconcelos,42.56,26,Biologia,Curitiba
+A0000482,836.414.273-98,Cássio Moura,65.49,26,Direito,Porto Alegre
+A0000483,474.855.300-62,Eduarda Cruz,4.75,25,Biologia,São Paulo
+A0000484,062.807.753-05,Erick Barros,60.83,29,Computação,Porto Alegre
+A0000485,821.654.080-91,Henrique Magalhães,54.86,30,Administração,Salvador
+A0000486,602.197.211-22,José Ferreira,46.76,26,Engenharia,São Paulo
+A0000487,222.439.839-58,Wallace Dutra,67.53,26,Engenharia,Manaus
+A0000488,579.159.585-93,Hélio Figueiredo,50.22,20,Computação,Belo Horizonte
+A0000489,782.752.249-18,Luiz Pimentel,76.77,23,Computação,Salvador
+A0000490,297.589.367-19,Patrícia Valente,47.92,25,Administração,São Paulo
+A0000491,228.012.153-09,Sofia Moura,10.13,18,Administração,Manaus
+A0000492,380.594.185-48,Enzo Branco,43.35,27,Psicologia,Brasília
+A0000493,601.436.209-67,Henrique Lima,37.51,26,Administração,Recife
+A0000494,205.386.660-80,William Azevedo,9.81,22,Direito,Brasília
+A0000495,627.109.655-77,Marcela Souza,46.61,26,Arquitetura,São Paulo
+A0000496,907.948.896-89,Sérgio Novaes,59.58,22,Administração,Porto Alegre
+A0000497,768.992.176-00,Sofia Farias,22.01,17,Engenharia,Curitiba
+A0000498,038.092.150-23,Juliana Araújo,84.74,22,Arquitetura,São Paulo
+A0000499,788.254.804-90,Paula Figueira,28.48,17,Biologia,Curitiba
+A0000500,801.864.389-07,Elaine Rodrigues,35.65,26,Engenharia,Curitiba
+A0000501,937.998.328-07,Henrique Conceição,46.41,19,Medicina,Porto Alegre
+A0000502,045.041.542-26,Stephanie Castro,76.98,24,Biologia,Salvador
+A0000503,143.246.481-74,Giselle Fonseca,4.01,17,Biologia,Brasília
+A0000504,569.328.580-45,Abner Correia,10.45,30,Medicina,Manaus
+A0000505,899.342.890-59,Vanessa Conceição,39.05,26,Engenharia,São Paulo
+A0000506,563.690.109-79,Vera Antunes,22.49,23,Engenharia,Recife
+A0000507,643.079.184-01,Davi Maciel,90.04,20,Direito,Curitiba
+A0000508,665.748.070-93,Igor Figueira,12.25,28,Direito,Salvador
+A0000509,871.125.212-03,Sandra Viana,85.84,29,Biologia,Recife
+A0000510,693.012.511-32,Igor Lopes,89.6,27,Psicologia,Porto Alegre
+A0000511,750.938.868-66,Matheus Gonçalves,5.87,20,Psicologia,Curitiba
+A0000512,985.508.464-06,Hugo Gonçalves,54.5,23,Biologia,Brasília
+A0000513,891.310.467-97,Roberta Pimentel,24.67,28,Direito,Curitiba
+A0000514,668.432.663-47,Marcos Santos,86.0,27,Direito,Belo Horizonte
+A0000515,602.086.817-60,Alan Figueira,34.77,22,Medicina,Porto Alegre
+A0000516,475.251.038-36,Frederico Ribeiro,22.73,30,Biologia,Belo Horizonte
+A0000517,490.663.249-10,Joana Araújo,13.23,18,Administração,Salvador
+A0000518,747.797.071-70,Ana Tavares,80.92,27,Direito,São Paulo
+A0000519,537.751.108-52,Vera Xavier,29.8,20,Engenharia,Porto Alegre
+A0000520,593.945.594-85,Elaine Chagas,0.98,25,Biologia,Porto Alegre
+A0000521,511.868.634-20,Cátia Chagas,69.34,22,Direito,Belo Horizonte
+A0000522,497.879.510-97,Simone Silva,97.76,23,Computação,Brasília
+A0000523,321.528.251-87,Wallace Valente,12.35,21,Computação,Rio de Janeiro
+A0000524,318.505.746-50,Matheus Souza,98.42,22,Direito,Manaus
+A0000525,842.458.582-81,Eduardo Andrade,48.36,24,Medicina,Recife
+A0000526,585.671.661-28,Carlos Campos,12.79,21,Engenharia,Rio de Janeiro
+A0000527,957.781.043-83,Maria Torres,40.56,17,Medicina,Belo Horizonte
+A0000528,705.140.954-90,Alex Lima,90.16,25,Engenharia,Rio de Janeiro
+A0000529,713.731.540-20,William Pinheiro,16.39,18,Engenharia,Recife
+A0000530,535.438.097-92,Gustavo Gonçalves,23.57,26,Biologia,São Paulo
+A0000531,757.129.224-79,Vitor Figueiredo,70.97,30,Administração,Porto Alegre
+A0000532,002.710.638-15,Yuri Freitas,50.8,29,Arquitetura,São Paulo
+A0000533,589.226.319-37,Clara Brandão,53.43,28,Biologia,Porto Alegre
+A0000534,837.698.858-13,Michael Farias,59.73,26,Psicologia,Brasília
+A0000535,271.814.462-90,Leonardo Castro,5.14,18,Psicologia,Belo Horizonte
+A0000536,820.616.296-87,Eliane Farias,66.81,25,Engenharia,Manaus
+A0000537,588.806.081-00,Alan Soares,43.82,21,Administração,Porto Alegre
+A0000538,114.249.604-01,Samuel Moura,20.92,18,Medicina,São Paulo
+A0000539,004.494.544-28,William Carvalho,19.56,23,Engenharia,Curitiba
+A0000540,312.080.402-94,Guilherme Cunha,95.29,18,Arquitetura,Curitiba
+A0000541,214.513.768-80,Giselle Torres,1.15,29,Engenharia,Recife
+A0000542,349.016.959-08,Thiago Borges,11.89,20,Engenharia,Brasília
+A0000543,097.754.038-39,Enzo Albuquerque,48.01,23,Medicina,Rio de Janeiro
+A0000544,325.662.957-19,Paula Ferreira,89.26,22,Arquitetura,Brasília
+A0000545,805.007.957-03,Murilo Dutra,42.39,19,Arquitetura,Brasília
+A0000546,091.602.521-70,Giselle Lopes,79.69,21,Computação,Curitiba
+A0000547,481.825.168-20,Thiago Sampaio,17.15,28,Computação,Belo Horizonte
+A0000548,010.115.266-38,Diego Pinheiro,72.92,28,Biologia,Salvador
+A0000549,850.599.900-28,Francisco Reis,90.63,26,Psicologia,Salvador
+A0000550,866.329.645-24,Jorge Neves,83.73,19,Psicologia,Belo Horizonte
+A0000551,275.466.199-98,Isaque Nogueira,16.55,21,Arquitetura,Porto Alegre
+A0000552,740.402.072-70,Yasmin Cunha,14.04,21,Engenharia,São Paulo
+A0000553,989.608.457-28,Caio Pereira,35.86,25,Arquitetura,Rio de Janeiro
+A0000554,836.603.816-59,Bruno Tavares,14.75,20,Psicologia,Manaus
+A0000555,758.859.019-02,Sofia Pacheco,77.76,18,Arquitetura,Curitiba
+A0000556,285.348.533-12,Jorge Gaspar,65.23,26,Medicina,Brasília
+A0000557,724.126.411-88,Pedro Garcia,57.45,19,Direito,Belo Horizonte
+A0000558,669.533.445-55,Paulo Nascimento,43.53,24,Direito,Porto Alegre
+A0000559,499.647.353-32,André Pereira,57.65,30,Arquitetura,Manaus
+A0000560,366.510.212-06,Frederico Chagas,90.39,26,Computação,São Paulo
+A0000561,991.673.606-53,Eduardo Henriques,62.25,21,Psicologia,Curitiba
+A0000562,771.768.852-22,Caio Magalhães,99.49,17,Arquitetura,Curitiba
+A0000563,639.968.997-00,Vanessa Albuquerque,83.4,21,Computação,Manaus
+A0000564,567.418.282-57,Sofia Torres,44.02,19,Engenharia,Porto Alegre
+A0000565,529.876.803-25,Adriel Viana,13.32,25,Engenharia,Rio de Janeiro
+A0000566,281.090.243-78,Gabriela Correia,47.73,28,Computação,Manaus
+A0000567,111.219.123-20,Fernanda Coelho,13.15,29,Computação,Belo Horizonte
+A0000568,594.440.392-69,Emerson Andrade,52.06,17,Medicina,Recife
+A0000569,565.801.832-33,Eduardo Lopes,47.58,20,Psicologia,Porto Alegre
+A0000570,866.471.421-50,Estevão Azevedo,76.39,29,Arquitetura,Belo Horizonte
+A0000571,927.528.500-42,Abner Garcia,32.8,23,Medicina,Brasília
+A0000572,624.800.454-47,Enzo Farias,99.51,30,Arquitetura,Belo Horizonte
+A0000573,121.731.751-14,Sofia Jesus,34.73,17,Computação,Porto Alegre
+A0000574,712.499.938-30,Camila Coelho,78.16,17,Engenharia,Salvador
+A0000575,128.323.870-55,Joana Ramos,76.39,29,Arquitetura,Brasília
+A0000576,492.353.944-57,Arthur Andrade,48.94,28,Arquitetura,Manaus
+A0000577,258.139.246-04,Ingrid Figueira,72.42,27,Administração,Salvador
+A0000578,188.176.192-48,Antonio Henriques,45.29,17,Computação,Salvador
+A0000579,471.641.143-58,Gabriela Ferraz,19.62,17,Medicina,Porto Alegre
+A0000580,161.899.860-99,Clara Pereira,63.47,18,Arquitetura,São Paulo
+A0000581,074.144.661-83,Douglas Cruz,42.02,28,Computação,São Paulo
+A0000582,643.159.648-08,Hugo Freitas,24.74,29,Administração,Curitiba
+A0000583,505.651.826-33,Marcos Duarte,93.08,20,Arquitetura,Porto Alegre
+A0000584,605.969.668-65,Letícia Carneiro,27.11,28,Biologia,São Paulo
+A0000585,531.776.858-60,Arthur Oliveira,23.81,24,Biologia,Porto Alegre
+A0000586,545.156.339-02,Natália Souza,64.72,25,Direito,Curitiba
+A0000587,343.338.753-23,Alex Souza,55.06,22,Medicina,Curitiba
+A0000588,806.023.394-72,Raquel Almeida,89.99,27,Psicologia,Salvador
+A0000589,893.560.030-09,Elaine Costa,8.36,24,Computação,Brasília
+A0000590,532.649.361-60,Diego Portela,96.65,26,Engenharia,Brasília
+A0000591,932.407.454-70,Frederico Rodrigues,86.51,30,Direito,São Paulo
+A0000592,628.428.008-42,Jorge Bastos,80.98,17,Engenharia,Porto Alegre
+A0000593,472.573.604-05,Lúcia Santos,80.72,29,Biologia,Rio de Janeiro
+A0000594,740.043.416-04,Maurício Garcia,2.45,19,Engenharia,Brasília
+A0000595,934.685.873-76,Giselle Magalhães,35.33,22,Biologia,Belo Horizonte
+A0000596,509.172.958-54,Caio Figueiredo,55.08,23,Computação,Recife
+A0000597,058.034.908-06,Joana Santos,93.23,30,Psicologia,Belo Horizonte
+A0000598,734.198.140-70,Erick Cunha,71.8,18,Direito,Recife
+A0000599,065.625.016-01,Stephanie Figueiredo,40.81,30,Engenharia,Rio de Janeiro
+A0000600,246.123.588-05,Beatriz Novaes,3.22,27,Arquitetura,Curitiba
+A0000601,286.445.504-89,Felipe Brandão,90.18,20,Administração,Manaus
+A0000602,517.257.905-21,Karen Portela,70.15,26,Computação,Belo Horizonte
+A0000603,168.904.930-87,Frederico Dutra,91.41,26,Direito,Belo Horizonte
+A0000604,434.936.609-10,Flávia Nogueira,19.72,28,Computação,Recife
+A0000605,736.515.508-69,Débora Portela,9.78,26,Direito,Brasília
+A0000606,135.137.850-38,Beatriz Valente,50.02,23,Medicina,Recife
+A0000607,731.342.625-92,Frederico Sampaio,88.55,25,Psicologia,Salvador
+A0000608,040.652.504-80,Marina Dias,3.62,26,Direito,Rio de Janeiro
+A0000609,173.010.521-11,Fernando Portela,69.75,18,Arquitetura,Belo Horizonte
+A0000610,284.803.758-09,Caio Pacheco,64.94,30,Engenharia,São Paulo
+A0000611,941.432.464-06,Tatiane Duarte,50.4,28,Computação,Salvador
+A0000612,212.027.006-67,Paula Neves,14.51,19,Administração,Curitiba
+A0000613,973.350.192-14,Gabriela Henriques,86.83,20,Administração,Manaus
+A0000614,211.722.290-07,Cátia Coelho,57.38,26,Engenharia,Rio de Janeiro
+A0000615,232.286.614-82,Carla Carneiro,53.55,18,Computação,Rio de Janeiro
+A0000616,130.967.474-40,Pedro Vasconcelos,80.22,27,Administração,Manaus
+A0000617,919.881.660-80,Giselle Melo,97.79,19,Engenharia,Salvador
+A0000618,908.704.291-40,Paulo Branco,75.32,21,Biologia,Manaus
+A0000619,941.390.262-35,Lúcia Saraiva,36.22,29,Medicina,Recife
+A0000620,289.163.897-20,Sérgio Freitas,75.41,21,Administração,Rio de Janeiro
+A0000621,003.054.560-91,Natália Mendes,93.13,17,Direito,Manaus
+A0000622,596.900.832-01,Jéssica Campos,83.22,25,Computação,Recife
+A0000623,833.818.016-51,Alan Gonçalves,12.91,17,Administração,Curitiba
+A0000624,823.029.797-53,Maurício Antunes,86.89,29,Biologia,Brasília
+A0000625,348.958.969-60,Carlos Albuquerque,63.33,24,Administração,Brasília
+A0000626,273.927.972-80,Fernanda Borges,30.85,26,Engenharia,Recife
+A0000627,862.578.216-73,Thiago Souza,10.57,22,Engenharia,São Paulo
+A0000628,437.642.359-93,Jackson Neves,76.95,20,Direito,Porto Alegre
+A0000629,117.518.525-63,Rafael Figueiredo,43.72,28,Engenharia,Porto Alegre
+A0000630,526.775.338-63,Isaque Queiroz,27.66,17,Computação,Brasília
+A0000631,641.729.932-57,Enzo Carvalho,24.4,28,Administração,Manaus
+A0000632,778.771.634-79,Simone Branco,74.71,21,Biologia,Porto Alegre
+A0000633,548.608.574-53,Ricardo Cardoso,23.35,28,Psicologia,Recife
+A0000634,826.634.710-70,Paula Santos,56.66,18,Direito,Rio de Janeiro
+A0000635,230.321.284-71,João Padilha,92.12,21,Biologia,Recife
+A0000636,380.176.394-30,Eliane Xavier,6.57,27,Engenharia,Salvador
+A0000637,723.074.386-96,Stephanie Miranda,18.92,30,Engenharia,Curitiba
+A0000638,901.384.466-95,Samuel Maia,87.2,23,Arquitetura,Recife
+A0000639,037.771.799-14,Samuel Moreira,12.7,18,Direito,Curitiba
+A0000640,348.531.154-55,Emerson Silva,56.05,17,Psicologia,Salvador
+A0000641,486.226.417-40,Matheus Torres,83.6,30,Psicologia,Rio de Janeiro
+A0000642,647.386.960-33,Carla Medeiros,53.09,20,Medicina,Rio de Janeiro
+A0000643,594.262.932-30,Camila Bastos,77.96,28,Engenharia,Recife
+A0000644,255.312.183-03,Cátia Maciel,88.25,27,Computação,Porto Alegre
+A0000645,094.008.503-87,Eduardo Borges,72.49,27,Computação,Manaus
+A0000646,274.694.410-34,Bruna Maciel,94.06,28,Engenharia,Salvador
+A0000647,364.822.767-09,Igor Peixoto,26.52,17,Medicina,Curitiba
+A0000648,080.268.647-86,Yasmin Ribeiro,24.22,26,Engenharia,Rio de Janeiro
+A0000649,590.617.654-39,Jéssica Teixeira,39.57,26,Engenharia,Recife
+A0000650,700.135.612-35,Melissa Rocha,85.58,21,Medicina,Belo Horizonte
+A0000651,821.432.891-89,Wagner Jesus,56.99,22,Direito,Curitiba
+A0000652,062.932.325-93,Vera Moreira,1.38,20,Arquitetura,Belo Horizonte
+A0000653,963.848.333-44,Michele Duarte,60.35,17,Computação,Salvador
+A0000654,333.559.860-11,Isabela Pinheiro,64.37,21,Psicologia,Salvador
+A0000655,158.589.344-71,Camila Souza,24.16,30,Direito,Recife
+A0000656,806.599.672-86,João Ferreira,24.31,21,Administração,Brasília
+A0000657,538.024.910-84,Guilherme Jesus,88.27,27,Arquitetura,Rio de Janeiro
+A0000658,160.135.345-60,Cátia Machado,14.02,25,Arquitetura,Brasília
+A0000659,659.839.308-69,Fernanda Pimentel,2.05,21,Computação,Belo Horizonte
+A0000660,496.452.566-07,Ana Torres,44.94,17,Administração,Rio de Janeiro
+A0000661,773.917.252-93,Bruno Souza,52.83,21,Engenharia,Belo Horizonte
+A0000662,765.419.637-70,Estevão Correia,16.34,19,Arquitetura,Manaus
+A0000663,236.814.635-06,Michael Mendes,60.21,23,Medicina,Rio de Janeiro
+A0000664,259.981.255-09,Caio Maciel,67.9,30,Computação,Rio de Janeiro
+A0000665,835.686.011-33,José Guimarães,11.75,29,Medicina,Porto Alegre
+A0000666,374.356.902-79,Guilherme Nogueira,25.11,22,Medicina,São Paulo
+A0000667,135.401.324-73,Marina Machado,93.47,30,Medicina,Curitiba
+A0000668,680.435.741-89,Giselle Portela,71.4,18,Psicologia,Porto Alegre
+A0000669,020.923.048-79,Juliana Carneiro,66.17,29,Computação,São Paulo
+A0000670,083.049.043-49,Arthur Moura,55.65,21,Arquitetura,Curitiba
+A0000671,140.766.883-84,Roberto Saraiva,63.93,25,Biologia,Porto Alegre
+A0000672,227.167.734-32,Murilo Cavalcante,75.8,18,Direito,Belo Horizonte
+A0000673,710.974.088-92,Thiago Ribeiro,57.78,17,Arquitetura,Brasília
+A0000674,546.090.024-77,Vanessa Cunha,29.27,26,Medicina,Recife
+A0000675,605.511.287-63,Jackson Cunha,30.7,20,Biologia,Belo Horizonte
+A0000676,916.433.609-30,José Barros,5.38,27,Medicina,Rio de Janeiro
+A0000677,868.516.263-73,Yasmin Araújo,9.53,29,Administração,Recife
+A0000678,151.155.683-81,Felipe Moreira,84.64,19,Biologia,Belo Horizonte
+A0000679,137.436.962-40,Natália Monteiro,82.5,18,Biologia,Brasília
+A0000680,022.716.231-54,Pedro Rocha,99.17,25,Computação,São Paulo
+A0000681,398.858.882-25,Igor Ferreira,33.97,19,Medicina,Recife
+A0000682,704.839.684-98,Joana Andrade,11.67,25,Medicina,Curitiba
+A0000683,204.754.707-53,Wagner Mendes,47.42,23,Biologia,Belo Horizonte
+A0000684,568.272.870-09,Manuela Almeida,78.78,24,Medicina,São Paulo
+A0000685,230.985.105-10,Thiago Ferreira,22.87,22,Psicologia,Recife
+A0000686,087.160.677-11,Christian Cardoso,94.39,23,Engenharia,Brasília
+A0000687,115.397.410-01,Otávio Rodrigues,68.07,23,Arquitetura,Manaus
+A0000688,991.756.659-72,Sofia Miranda,14.24,23,Arquitetura,São Paulo
+A0000689,601.271.303-73,Renan Lopes,64.75,18,Medicina,Brasília
+A0000690,352.737.438-85,José Ferraz,79.07,20,Medicina,Curitiba
+A0000691,075.557.752-39,Jorge Oliveira,50.04,19,Administração,Salvador
+A0000692,440.310.648-02,Simone Azevedo,8.33,19,Biologia,Porto Alegre
+A0000693,616.946.467-42,Christian Conceição,97.75,28,Medicina,Recife
+A0000694,715.579.632-82,Daniel Xavier,4.44,22,Psicologia,Salvador
+A0000695,407.358.093-05,Vanessa Gonçalves,2.1,18,Medicina,Rio de Janeiro
+A0000696,434.495.521-80,Vitória Oliveira,78.58,23,Medicina,Brasília
+A0000697,930.627.825-01,Bruno Reis,77.31,20,Arquitetura,Recife
+A0000698,197.255.177-92,Talita Ribeiro,49.5,22,Engenharia,Manaus
+A0000699,516.225.071-69,Otávio Alves,38.76,28,Arquitetura,Recife
+A0000700,508.535.500-85,Henrique Vasconcelos,95.08,27,Engenharia,Belo Horizonte
+A0000701,147.782.724-20,Levi Conceição,5.69,28,Medicina,Belo Horizonte
+A0000702,186.886.770-69,Renata Cruz,62.89,28,Medicina,Recife
+A0000703,181.485.077-59,Frederico Gomes,25.26,23,Administração,Recife
+A0000704,562.211.657-09,Arthur Antunes,41.17,21,Direito,Manaus
+A0000705,759.576.609-57,Samuel Assis,42.76,18,Arquitetura,Curitiba
+A0000706,745.900.988-14,Fernanda Xavier,26.2,22,Computação,Manaus
+A0000707,564.097.989-54,Ivan Albuquerque,73.65,30,Medicina,Porto Alegre
+A0000708,609.531.824-60,Karen Brandão,90.66,25,Arquitetura,Rio de Janeiro
+A0000709,861.298.129-81,Estevão Alves,61.45,18,Biologia,Recife
+A0000710,936.625.990-15,Yasmin Duarte,70.1,28,Psicologia,Belo Horizonte
+A0000711,018.258.027-00,Paulo Gaspar,24.78,22,Administração,São Paulo
+A0000712,882.981.438-50,Bruno Melo,37.77,25,Arquitetura,Rio de Janeiro
+A0000713,124.923.584-70,Leonardo Silva,41.78,25,Engenharia,Rio de Janeiro
+A0000714,514.428.726-32,Vitor Albuquerque,73.81,25,Direito,Curitiba
+A0000715,058.085.695-08,Frederico Valente,62.59,29,Biologia,São Paulo
+A0000716,199.948.959-40,Hugo Pereira,24.68,30,Computação,Brasília
+A0000717,344.162.990-60,Jéssica Morais,52.93,25,Psicologia,Curitiba
+A0000718,052.292.670-38,Wagner Monteiro,55.28,29,Administração,Porto Alegre
+A0000719,282.366.905-12,Paula Guimarães,27.54,23,Biologia,Rio de Janeiro
+A0000720,670.984.849-38,Beatriz Borges,2.89,25,Engenharia,Rio de Janeiro
+A0000721,244.546.456-04,Adriel Saraiva,63.84,17,Medicina,Curitiba
+A0000722,235.795.562-74,Paula Pimentel,86.38,20,Engenharia,Rio de Janeiro
+A0000723,991.583.065-36,Letícia Conceição,10.34,24,Psicologia,Porto Alegre
+A0000724,599.857.353-66,Sofia Gomes,62.98,29,Computação,Belo Horizonte
+A0000725,459.939.930-22,Rodrigo Barros,36.56,25,Computação,Rio de Janeiro
+A0000726,838.577.105-00,Aline Maciel,70.33,29,Arquitetura,Manaus
+A0000727,159.037.683-85,Alex Pereira,23.24,22,Medicina,Brasília
+A0000728,128.042.119-32,Murilo Correia,4.14,21,Biologia,Brasília
+A0000729,758.024.437-31,Ingrid Melo,38.1,23,Biologia,Salvador
+A0000730,404.916.621-65,Estevão Miranda,37.94,22,Engenharia,Rio de Janeiro
+A0000731,988.055.181-82,Adriel Cavalcante,26.89,23,Direito,São Paulo
+A0000732,994.059.671-50,Lucas Nascimento,81.44,21,Administração,Manaus
+A0000733,391.755.571-93,Sofia Machado,26.79,24,Medicina,Recife
+A0000734,306.829.949-79,Renata Reis,84.28,22,Medicina,Salvador
+A0000735,347.365.132-09,Marina Saraiva,15.07,29,Engenharia,Recife
+A0000736,165.866.531-77,Manuela Ramos,18.88,25,Arquitetura,Porto Alegre
+A0000737,067.905.565-75,Enzo Gomes,77.32,30,Medicina,Manaus
+A0000738,710.883.456-11,Gabriel Almeida,5.5,30,Engenharia,Salvador
+A0000739,963.030.641-75,Ivan Branco,22.07,23,Medicina,Curitiba
+A0000740,623.867.037-11,Vera Barros,0.93,28,Engenharia,Recife
+A0000741,799.862.675-52,Carlos Figueiredo,41.24,17,Psicologia,Salvador
+A0000742,970.641.594-73,Enzo Pacheco,77.81,28,Administração,Porto Alegre
+A0000743,974.888.820-75,Vera Costa,59.22,29,Computação,Salvador
+A0000744,976.608.409-24,Natália Conceição,48.3,27,Computação,Belo Horizonte
+A0000745,878.513.686-77,André Campos,19.9,22,Arquitetura,Rio de Janeiro
+A0000746,870.536.651-86,Paulo Figueira,43.4,19,Arquitetura,Porto Alegre
+A0000747,291.206.359-07,Marina Cardoso,38.28,22,Direito,Brasília
+A0000748,108.609.161-20,Douglas Tavares,55.75,18,Computação,Manaus
+A0000749,487.232.760-88,Débora Nascimento,19.84,29,Biologia,Manaus
+A0000750,691.382.028-32,Vinícius Campos,76.2,20,Engenharia,Porto Alegre
+A0000751,996.787.905-05,Stephanie Ramos,46.93,26,Computação,Porto Alegre
+A0000752,978.003.673-39,Frederico Cunha,17.5,17,Medicina,Rio de Janeiro
+A0000753,964.154.205-26,Eduarda Costa,91.21,28,Arquitetura,São Paulo
+A0000754,919.175.405-40,Eduarda Campos,83.96,19,Engenharia,São Paulo
+A0000755,687.027.644-74,Evandro Guimarães,80.3,25,Psicologia,Curitiba
+A0000756,365.669.819-85,Ana Borges,64.29,30,Medicina,Belo Horizonte
+A0000757,425.033.704-97,Cláudio Oliveira,14.73,29,Direito,Belo Horizonte
+A0000758,707.455.501-00,Giselle Freitas,82.53,28,Direito,Rio de Janeiro
+A0000759,577.815.176-44,Camila Cardoso,87.84,17,Arquitetura,Manaus
+A0000760,261.603.382-85,Matheus Miranda,74.64,24,Administração,Curitiba
+A0000761,935.254.407-23,Igor Ribeiro,61.39,21,Administração,São Paulo
+A0000762,112.949.648-10,Renan Rocha,67.85,21,Biologia,Manaus
+A0000763,084.098.322-08,Wallace Rodrigues,97.72,18,Biologia,Salvador
+A0000764,202.159.614-12,Clara Gonçalves,76.35,21,Computação,Curitiba
+A0000765,945.659.105-00,Renata Pinheiro,74.35,29,Medicina,Recife
+A0000766,094.429.369-72,Renata Conceição,78.91,22,Administração,Porto Alegre
+A0000767,626.510.508-65,Maurício Magalhães,1.48,30,Administração,Salvador
+A0000768,911.041.257-30,Débora Carvalho,83.7,20,Psicologia,Curitiba
+A0000769,236.746.393-00,Davi Dutra,3.36,19,Psicologia,Manaus
+A0000770,235.815.885-28,Michael Torres,24.38,26,Direito,Recife
+A0000771,559.790.984-37,Cláudio Miranda,88.26,25,Direito,Belo Horizonte
+A0000772,041.265.966-23,Giselle Magalhães,67.55,25,Psicologia,São Paulo
+A0000773,448.994.556-66,Roberto Araújo,29.65,20,Arquitetura,São Paulo
+A0000774,720.841.455-62,Fernanda Saraiva,26.55,18,Arquitetura,Curitiba
+A0000775,274.394.616-49,Renan Antunes,99.46,20,Arquitetura,São Paulo
+A0000776,011.447.251-35,Daniel Vasconcelos,79.67,19,Medicina,Curitiba
+A0000777,845.393.631-58,Lúcia Araújo,43.63,24,Biologia,Salvador
+A0000778,348.384.669-78,Ingrid Rocha,35.15,29,Psicologia,São Paulo
+A0000779,173.447.063-18,Patrícia Nascimento,61.76,20,Biologia,Porto Alegre
+A0000780,077.139.769-06,João Reis,17.97,28,Arquitetura,Salvador
+A0000781,008.306.780-93,Matheus Branco,45.75,23,Administração,Manaus
+A0000782,739.674.872-02,Melissa Reis,50.49,23,Direito,Porto Alegre
+A0000783,738.584.327-17,Carlos Padilha,27.31,27,Arquitetura,Brasília
+A0000784,397.472.649-78,Yuri Barbosa,42.87,25,Medicina,São Paulo
+A0000785,211.982.860-16,Frederico Cunha,52.76,19,Psicologia,Curitiba
+A0000786,753.690.988-83,Amanda Peixoto,2.36,30,Administração,Manaus
+A0000787,934.124.848-57,Larissa Mendes,43.46,27,Administração,Curitiba
+A0000788,347.487.482-90,Flávia Conceição,52.5,19,Direito,Porto Alegre
+A0000789,747.796.170-06,José Jesus,96.52,22,Direito,Curitiba
+A0000790,141.676.513-19,Levi Vasconcelos,90.97,30,Computação,Porto Alegre
+A0000791,531.694.209-41,Francisco Nogueira,69.07,24,Engenharia,Rio de Janeiro
+A0000792,331.414.285-49,Bruno Ferreira,31.26,21,Medicina,São Paulo
+A0000793,979.605.927-48,Abner Valente,11.52,21,Psicologia,Curitiba
+A0000794,785.744.289-57,Natália Aguiar,14.55,20,Administração,Curitiba
+A0000795,382.677.193-18,José Maia,98.7,24,Computação,Brasília
+A0000796,800.584.397-65,Talita Silva,45.16,23,Arquitetura,Brasília
+A0000797,054.811.119-77,Tatiane Ramos,50.3,29,Biologia,Recife
+A0000798,186.261.661-25,Henrique Mendes,37.5,22,Arquitetura,Belo Horizonte
+A0000799,728.660.852-56,Pedro Almeida,11.22,27,Engenharia,Salvador
+A0000800,209.541.589-20,Jackson Gonçalves,72.74,21,Arquitetura,São Paulo
+A0000801,483.388.989-70,Yuri Soares,96.94,27,Medicina,Curitiba
+A0000802,250.127.732-50,Hélio Figueiredo,36.74,20,Engenharia,Manaus
+A0000803,350.714.365-82,Thiago Portela,47.02,27,Direito,Rio de Janeiro
+A0000804,491.542.376-02,Frederico Maia,70.67,18,Psicologia,Salvador
+A0000805,022.772.231-07,Ricardo Lopes,95.46,25,Psicologia,São Paulo
+A0000806,699.955.802-76,Roberta Teixeira,52.88,20,Medicina,Salvador
+A0000807,015.504.750-70,Christian Padilha,60.25,19,Direito,Belo Horizonte
+A0000808,942.653.643-49,Marcelo Nogueira,26.99,27,Medicina,Porto Alegre
+A0000809,002.251.844-43,Gustavo Duarte,98.3,18,Psicologia,Manaus
+A0000810,709.266.244-31,Manuela Conceição,57.95,17,Administração,Brasília
+A0000811,001.879.263-44,Beatriz Jesus,65.58,18,Arquitetura,Porto Alegre
+A0000812,935.939.064-06,Sandra Cardoso,15.22,20,Psicologia,Curitiba
+A0000813,252.206.981-09,Karen Aguiar,46.69,21,Administração,Salvador
+A0000814,860.395.836-06,Leonardo Coelho,12.48,27,Engenharia,Porto Alegre
+A0000815,006.133.312-30,Gabriel Mendes,64.15,25,Engenharia,Porto Alegre
+A0000816,038.352.293-54,Vera Reis,50.26,22,Administração,Brasília
+A0000817,112.460.361-18,Ivan Cruz,48.93,22,Biologia,Rio de Janeiro
+A0000818,324.261.979-00,Christian Nogueira,8.24,25,Psicologia,Salvador
+A0000819,922.989.844-92,Henrique Freitas,44.71,30,Arquitetura,Brasília
+A0000820,343.914.056-36,Eliane Mendes,93.98,29,Direito,Curitiba
+A0000821,403.840.343-22,Sofia Vasconcelos,43.12,20,Biologia,Curitiba
+A0000822,389.591.944-68,Nicole Batista,58.04,17,Arquitetura,Recife
+A0000823,093.561.343-91,Carolina Carneiro,67.78,17,Psicologia,Curitiba
+A0000824,706.136.851-99,Isabela Barros,61.9,24,Engenharia,Belo Horizonte
+A0000825,967.775.205-70,Gabriel Sampaio,22.04,23,Computação,Belo Horizonte
+A0000826,552.880.530-90,Talita Correia,91.19,29,Administração,Manaus
+A0000827,113.251.142-94,Aline Chagas,99.18,28,Biologia,Curitiba
+A0000828,641.198.573-10,Camila Fonseca,43.46,26,Arquitetura,Recife
+A0000829,108.192.484-52,Maria Nascimento,98.89,17,Computação,Porto Alegre
+A0000830,810.715.234-49,Wagner Lopes,61.89,17,Engenharia,Belo Horizonte
+A0000831,104.889.947-05,Karen Magalhães,72.35,25,Arquitetura,Recife
+A0000832,147.622.640-75,Ana Mendes,70.82,24,Engenharia,Belo Horizonte
+A0000833,345.174.439-22,Leonardo Queiroz,37.57,19,Administração,São Paulo
+A0000834,387.995.144-60,Davi Maia,0.61,28,Medicina,São Paulo
+A0000835,688.119.761-62,Sofia Henriques,22.68,19,Medicina,Porto Alegre
+A0000836,031.150.724-73,Thiago Aguiar,69.86,20,Administração,Manaus
+A0000837,617.684.790-70,Gabriel Antunes,76.04,26,Computação,Belo Horizonte
+A0000838,091.203.065-80,Otávio Araújo,40.32,28,Arquitetura,Porto Alegre
+A0000839,275.391.447-85,André Cardoso,65.41,20,Arquitetura,Curitiba
+A0000840,061.955.535-14,Eduarda Queiroz,71.93,20,Direito,Manaus
+A0000841,339.861.462-02,Rafael Sampaio,19.95,26,Computação,Brasília
+A0000842,707.432.068-43,Renan Castro,12.27,22,Administração,Porto Alegre
+A0000843,262.847.405-06,João Silva,53.19,19,Arquitetura,Recife
+A0000844,163.457.736-11,Carlos Barbosa,99.54,25,Engenharia,Porto Alegre
+A0000845,485.375.572-18,Flávia Magalhães,71.85,22,Psicologia,Salvador
+A0000846,016.857.332-63,Juliana Miranda,36.45,27,Psicologia,Belo Horizonte
+A0000847,611.292.664-43,Douglas Dias,28.58,28,Arquitetura,Manaus
+A0000848,952.426.505-24,Cássio Garcia,81.11,24,Administração,Curitiba
+A0000849,598.025.062-06,Helena Monteiro,94.12,25,Biologia,Rio de Janeiro
+A0000850,563.614.791-02,Christian Ramos,36.76,21,Biologia,Rio de Janeiro
+A0000851,620.302.784-75,Débora Pereira,85.56,24,Arquitetura,Recife
+A0000852,510.810.915-68,Diego Farias,17.75,23,Psicologia,Salvador
+A0000853,864.147.914-74,Camila Lopes,73.95,25,Biologia,Porto Alegre
+A0000854,802.633.324-11,Diego Morais,52.28,25,Arquitetura,Rio de Janeiro
+A0000855,650.576.740-13,Melissa Bastos,77.6,28,Administração,Curitiba
+A0000856,640.986.105-23,Cláudio Ramos,29.47,26,Arquitetura,Brasília
+A0000857,644.316.519-50,Julio Figueiredo,99.53,17,Psicologia,Salvador
+A0000858,955.004.633-81,André Cunha,75.9,27,Psicologia,Belo Horizonte
+A0000859,027.668.841-49,Ivan Torres,71.2,30,Biologia,Belo Horizonte
+A0000860,806.122.824-65,Yuri Conceição,13.07,23,Direito,Porto Alegre
+A0000861,020.944.769-95,Arthur Campos,3.01,19,Biologia,Belo Horizonte
+A0000862,592.747.672-42,Abner Batista,29.46,26,Administração,São Paulo
+A0000863,311.988.067-10,Rodrigo Albuquerque,33.67,23,Arquitetura,Brasília
+A0000864,376.955.527-98,Lucas Assis,82.01,23,Psicologia,Porto Alegre
+A0000865,952.618.793-88,Nicole Torres,86.46,28,Direito,Belo Horizonte
+A0000866,942.999.504-96,Raquel Alves,71.89,22,Medicina,Curitiba
+A0000867,080.934.610-94,Emerson Cavalcante,16.59,23,Medicina,São Paulo
+A0000868,597.975.143-23,Beatriz Vasconcelos,26.4,23,Administração,Brasília
+A0000869,732.780.753-58,Roberta Moura,57.28,30,Direito,Porto Alegre
+A0000870,360.700.297-55,Antonio Pinheiro,9.58,18,Computação,Salvador
+A0000871,586.940.804-00,Arthur Gaspar,45.63,27,Administração,Porto Alegre
+A0000872,055.368.571-69,Tatiane Santos,88.11,26,Medicina,Brasília
+A0000873,468.772.473-61,Cláudio Henriques,4.3,23,Direito,São Paulo
+A0000874,262.102.704-09,Débora Cardoso,51.72,26,Direito,Curitiba
+A0000875,383.497.017-49,Yasmin Mendes,29.45,25,Psicologia,Porto Alegre
+A0000876,623.794.895-30,Adriel Peixoto,73.82,29,Direito,Recife
+A0000877,226.544.901-65,Wallace Guimarães,70.47,26,Direito,Curitiba
+A0000878,433.910.638-07,Elaine Antunes,98.08,20,Biologia,Salvador
+A0000879,402.727.309-55,Cristiane Saraiva,23.4,19,Psicologia,Curitiba
+A0000880,960.816.550-40,Bruna Pereira,81.92,18,Administração,Rio de Janeiro
+A0000881,878.594.052-61,Isabela Mendes,82.4,25,Direito,Manaus
+A0000882,195.103.045-14,Isabela Gaspar,27.38,27,Computação,Curitiba
+A0000883,400.145.731-80,Wallace Pinheiro,5.18,24,Administração,Belo Horizonte
+A0000884,110.125.694-03,Aline Saraiva,21.84,25,Arquitetura,Salvador
+A0000885,520.425.126-05,Renan Correia,51.97,18,Engenharia,Recife
+A0000886,363.624.971-12,Elaine Peixoto,37.04,18,Engenharia,Recife
+A0000887,961.188.713-29,Jorge Tavares,14.33,21,Biologia,Curitiba
+A0000888,708.122.962-06,Antonio Morais,28.03,21,Psicologia,Salvador
+A0000889,932.528.737-45,Bruno Rocha,18.89,30,Arquitetura,Recife
+A0000890,406.975.575-61,Cátia Dutra,98.26,27,Medicina,Salvador
+A0000891,783.459.902-07,Julio Correia,17.95,26,Administração,Manaus
+A0000892,415.516.640-20,Evandro Almeida,17.73,24,Direito,Belo Horizonte
+A0000893,590.292.224-09,Yasmin Freitas,33.99,30,Medicina,São Paulo
+A0000894,789.918.299-96,Hugo Henriques,69.3,28,Computação,Brasília
+A0000895,433.937.645-00,Giselle Correia,61.23,26,Arquitetura,Porto Alegre
+A0000896,869.236.598-09,Jorge Sampaio,76.34,17,Medicina,Belo Horizonte
+A0000897,438.972.234-49,Marcela Cruz,8.1,24,Engenharia,Belo Horizonte
+A0000898,029.301.256-32,André Pereira,13.94,28,Medicina,Curitiba
+A0000899,637.560.964-08,Henrique Carneiro,20.78,19,Direito,Belo Horizonte
+A0000900,385.515.495-37,Adriel Correia,44.74,24,Psicologia,Belo Horizonte
+A0000901,917.521.728-76,Evandro Monteiro,57.89,25,Biologia,Rio de Janeiro
+A0000902,322.622.491-30,Otávio Rodrigues,19.6,20,Engenharia,Salvador
+A0000903,659.398.819-71,Bruna Fonseca,71.63,28,Arquitetura,Brasília
+A0000904,771.359.536-81,Lucas Pimentel,57.54,19,Psicologia,Curitiba
+A0000905,324.555.704-36,Helena Lopes,66.34,30,Medicina,Salvador
+A0000906,689.079.922-40,João Borges,13.92,26,Biologia,Brasília
+A0000907,795.954.865-07,Clara Saraiva,46.35,20,Engenharia,Recife
+A0000908,052.570.862-63,Karen Nascimento,73.66,23,Computação,Belo Horizonte
+A0000909,392.418.260-45,Clara Batista,11.26,17,Arquitetura,Rio de Janeiro
+A0000910,660.549.781-36,Vitor Duarte,78.73,17,Arquitetura,Porto Alegre
+A0000911,874.528.577-20,Henrique Maia,59.14,27,Direito,São Paulo
+A0000912,515.001.216-57,Ana Alves,20.71,26,Medicina,São Paulo
+A0000913,345.642.230-03,Amanda Cavalcante,40.26,25,Administração,Salvador
+A0000914,907.527.515-30,Alan Conceição,6.37,30,Engenharia,Rio de Janeiro
+A0000915,903.308.820-74,Karen Albuquerque,34.03,28,Medicina,Rio de Janeiro
+A0000916,044.636.001-54,Levi Alves,2.65,26,Computação,Rio de Janeiro
+A0000917,929.674.700-74,Henrique Antunes,35.44,30,Medicina,Recife
+A0000918,109.679.906-53,Evandro Duarte,73.29,29,Computação,Recife
+A0000919,349.852.185-37,Marcela Peixoto,48.1,25,Psicologia,Curitiba
+A0000920,910.359.666-46,Maria Ramos,48.21,21,Biologia,Porto Alegre
+A0000921,498.272.076-28,Bruno Mendes,77.56,25,Engenharia,São Paulo
+A0000922,976.199.928-98,Rafael Neves,77.88,28,Biologia,Rio de Janeiro
+A0000923,427.875.580-54,Arthur Novaes,52.44,20,Arquitetura,Porto Alegre
+A0000924,897.919.673-34,Erick Vieira,28.95,26,Biologia,Salvador
+A0000925,171.029.684-42,Luiz Correia,5.29,24,Biologia,Brasília
+A0000926,002.052.281-94,Maurício Alves,74.65,20,Biologia,Manaus
+A0000927,656.341.328-51,Aline Alves,12.43,20,Arquitetura,Rio de Janeiro
+A0000928,994.801.534-75,Manuela Neves,24.07,28,Psicologia,Porto Alegre
+A0000929,635.045.844-32,Sérgio Carvalho,33.38,27,Engenharia,Manaus
+A0000930,905.553.934-10,Yasmin Albuquerque,67.03,20,Arquitetura,Porto Alegre
+A0000931,146.059.839-37,Yuri Vasconcelos,62.54,25,Medicina,São Paulo
+A0000932,390.033.447-10,Stephanie Carneiro,82.74,20,Engenharia,Recife
+A0000933,969.389.823-09,Clara Jesus,21.04,21,Direito,Salvador
+A0000934,920.955.457-45,Fernando Carneiro,96.5,30,Computação,Manaus
+A0000935,754.507.543-96,Elaine Gonçalves,56.55,20,Arquitetura,Porto Alegre
+A0000936,218.592.528-85,Jackson Antunes,27.95,28,Arquitetura,Salvador
+A0000937,003.175.971-83,Eduardo Gaspar,76.91,22,Administração,Salvador
+A0000938,274.303.172-78,Elaine Tavares,46.48,29,Computação,Recife
+A0000939,254.584.627-93,Clara Tavares,56.58,30,Direito,Manaus
+A0000940,510.766.377-01,Vitória Campos,70.82,29,Arquitetura,Brasília
+A0000941,820.003.051-21,Gabriel Morais,70.16,24,Psicologia,Manaus
+A0000942,305.941.659-11,Bruno Xavier,67.01,19,Engenharia,Recife
+A0000943,621.033.777-53,Luiz Gaspar,90.53,30,Computação,Rio de Janeiro
+A0000944,911.344.703-39,William Cardoso,68.06,27,Medicina,Brasília
+A0000945,864.304.264-16,Yuri Araújo,60.39,28,Arquitetura,Belo Horizonte
+A0000946,638.490.033-53,Wallace Brandão,53.2,23,Computação,Curitiba
+A0000947,273.470.176-61,Eliane Padilha,67.13,30,Arquitetura,Porto Alegre
+A0000948,926.042.753-33,Francisco Brandão,93.68,25,Medicina,Belo Horizonte
+A0000949,670.453.797-06,Antonio Sampaio,10.31,27,Arquitetura,Manaus
+A0000950,791.617.613-03,Sofia Gonçalves,57.38,18,Direito,Salvador
+A0000951,809.067.755-07,Cristiane Morais,73.56,18,Biologia,Rio de Janeiro
+A0000952,208.953.677-26,Juliana Ramos,63.45,27,Psicologia,Recife
+A0000953,439.854.940-45,Vinícius Rocha,4.09,25,Arquitetura,Brasília
+A0000954,175.122.523-23,Flávia Maia,66.82,26,Computação,Salvador
+A0000955,528.136.208-90,Flávia Pinheiro,56.8,28,Biologia,Porto Alegre
+A0000956,540.853.251-83,Joana Machado,67.66,26,Medicina,Belo Horizonte
+A0000957,053.679.802-87,Maria Pinheiro,51.62,26,Computação,Rio de Janeiro
+A0000958,863.155.475-83,Diego Correia,93.73,25,Administração,Brasília
+A0000959,196.396.469-11,Ivan Albuquerque,48.95,17,Direito,Rio de Janeiro
+A0000960,155.927.259-73,Daniela Barros,55.65,23,Computação,Rio de Janeiro
+A0000961,969.946.076-82,Tatiane Barbosa,55.34,24,Biologia,Rio de Janeiro
+A0000962,932.978.920-05,Abner Vieira,44.38,22,Arquitetura,Porto Alegre
+A0000963,730.283.178-50,Wallace Torres,44.64,22,Psicologia,Manaus
+A0000964,425.748.106-43,Luciana Nogueira,4.91,26,Arquitetura,Curitiba
+A0000965,893.423.425-31,Melissa Magalhães,91.21,20,Administração,Brasília
+A0000966,841.376.460-23,Renan Oliveira,45.25,17,Computação,São Paulo
+A0000967,179.642.424-23,Rafael Antunes,53.79,20,Biologia,Rio de Janeiro
+A0000968,292.001.310-69,Lucas Branco,52.1,19,Arquitetura,Curitiba
+A0000969,329.969.517-78,Felipe Peixoto,40.74,25,Medicina,Belo Horizonte
+A0000970,064.686.237-58,João Dutra,50.13,22,Biologia,São Paulo
+A0000971,272.219.444-90,Ivan Andrade,17.62,28,Administração,Salvador
+A0000972,337.005.125-70,Carla Batista,43.19,26,Computação,Curitiba
+A0000973,950.708.572-66,Eduardo Dias,16.16,18,Computação,Porto Alegre
+A0000974,292.280.475-50,Isabela Campos,98.72,20,Biologia,Brasília
+A0000975,555.161.117-57,Thiago Medeiros,26.77,28,Psicologia,São Paulo
+A0000976,167.955.063-20,Rodrigo Cardoso,72.76,28,Arquitetura,Brasília
+A0000977,805.563.573-02,Melissa Figueiredo,89.62,28,Computação,Rio de Janeiro
+A0000978,050.109.909-38,Francisco Soares,24.21,18,Administração,Manaus
+A0000979,109.651.246-73,Beatriz Neves,2.26,17,Arquitetura,Salvador
+A0000980,135.263.237-39,Vinícius Dutra,16.63,29,Computação,Salvador
+A0000981,613.771.166-89,Rodrigo Henriques,73.32,25,Engenharia,Rio de Janeiro
+A0000982,779.547.711-99,Frederico Peixoto,23.82,30,Medicina,Brasília
+A0000983,303.676.028-81,Priscila Correia,53.12,19,Engenharia,Brasília
+A0000984,814.243.041-05,Melissa Farias,5.81,26,Computação,Recife
+A0000985,602.206.682-48,Renan Miranda,62.21,21,Administração,Porto Alegre
+A0000986,832.537.859-04,Cristiane Dutra,43.64,22,Biologia,Brasília
+A0000987,263.931.979-51,Yuri Bastos,80.47,20,Direito,Recife
+A0000988,665.250.843-50,Caio Castro,73.27,22,Biologia,Curitiba
+A0000989,184.301.404-17,Hugo Moura,3.11,28,Computação,Salvador
+A0000990,197.206.985-35,Patrícia Valente,5.04,29,Biologia,Salvador
+A0000991,573.303.726-17,José Torres,13.08,27,Administração,Salvador
+A0000992,526.819.682-08,José Miranda,72.1,23,Psicologia,Brasília
+A0000993,999.726.732-00,Patrícia Reis,82.41,18,Arquitetura,Rio de Janeiro
+A0000994,710.196.283-16,Michael Padilha,69.87,28,Administração,Recife
+A0000995,296.059.632-30,Vitor Teixeira,35.37,27,Computação,Recife
+A0000996,194.663.537-56,Fernando Antunes,4.46,26,Administração,Rio de Janeiro
+A0000997,186.159.292-20,Matheus Branco,23.58,20,Arquitetura,Curitiba
+A0000998,237.651.972-11,Melissa Cruz,49.13,17,Direito,Brasília
+A0000999,977.476.813-21,Maurício Conceição,92.09,29,Direito,Rio de Janeiro
