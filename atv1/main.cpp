@@ -195,7 +195,7 @@ void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const stri
 
 int main() {
     Alunos *alunos = new Alunos{NULL, NULL, 0};
-    carregar_lista_de_alunos(alunos, "../alunos.csv");
+    carregar_lista_de_alunos(alunos, "../alunos_completos.csv");
     imprime_alunos(alunos);
     int opcao;
 
