@@ -1,3 +1,5 @@
+// 16 horas para importar 1M de alunos
+
 #include <cstdlib>
 #include <cstdio>
 #include <string>
@@ -6,6 +8,8 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <ctime>
+
 using namespace std;
 
 struct Aluno {
@@ -26,7 +30,8 @@ struct Alunos {
     int tam;
 };
 
-bool inserir_ordenado(Alunos *alunos, Aluno *novo_aluno) {
+
+bool inserir(Alunos *alunos, Aluno *novo_aluno) {
     if (alunos->inicio == NULL && alunos->fim == NULL) {
         alunos->inicio = novo_aluno;
         alunos->fim = novo_aluno;
@@ -195,8 +200,17 @@ void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const stri
 
 int main() {
     Alunos *alunos = new Alunos{NULL, NULL, 0};
+    clock_t inicio, fim;
+
+    inicio = clock();
     carregar_lista_de_alunos(alunos, "../alunos_completos.csv");
+<<<<<<< HEAD:atv1/main.cpp
     imprime_alunos(alunos);
+=======
+    fim = clock();
+    printf("%f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
+
+>>>>>>> 3753790 (Implement code changes to enhance functionality and improve performance):hashtable/1_forca_bruta.cpp
     int opcao;
 
     do {
