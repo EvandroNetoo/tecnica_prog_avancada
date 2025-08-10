@@ -159,7 +159,7 @@ void carregar_lista_de_alunos(Alunos *alunos, const string nome_arquivo) {
         Aluno *novo_aluno = new Aluno{NULL, NULL, colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6]};
         cout << novo_aluno->matricula << endl;
         // inserir_simples(alunos, novo_aluno);
-        inserir_ordenado(alunos, novo_aluno);
+        inserir(alunos, novo_aluno);
     }
 }
 
@@ -200,17 +200,9 @@ void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const stri
 
 int main() {
     Alunos *alunos = new Alunos{NULL, NULL, 0};
-    clock_t inicio, fim;
-
-    inicio = clock();
+    
     carregar_lista_de_alunos(alunos, "../alunos_completos.csv");
-<<<<<<< HEAD:atv1/main.cpp
     imprime_alunos(alunos);
-=======
-    fim = clock();
-    printf("%f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
-
->>>>>>> 3753790 (Implement code changes to enhance functionality and improve performance):hashtable/1_forca_bruta.cpp
     int opcao;
 
     do {
