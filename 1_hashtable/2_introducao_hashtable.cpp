@@ -55,19 +55,19 @@ void inicializar_tabela(TabelaHashAlunos *tabela_hash) {
     tabela_hash->tam = 0;
 }
 
-int funcao_hash(const Aluno* const aluno) {
+int funcao_hash(const Aluno *const aluno) {
     // return stoi(aluno->cpf.substr(0, 3) + aluno->cpf.substr(4, 3) + aluno->cpf.substr(8, 3));
     return stoi(aluno->cpf.substr(12, 2));
 }
 
 bool inserir(TabelaHashAlunos *tabela_hash_alunos, Aluno *novo_aluno) {
-    int index =  funcao_hash(novo_aluno) % TAM;
+    int index = funcao_hash(novo_aluno) % TAM;
 
     Alunos *alunos = &tabela_hash_alunos->tabela[index];
-    
+
     Aluno *atual = alunos->inicio, *atual2 = NULL;
-    while (atual != NULL ) {
-        if (atual->cpf == novo_aluno->cpf ) {
+    while (atual != NULL) {
+        if (atual->cpf == novo_aluno->cpf) {
             return false;
         }
         if (atual2 == NULL && novo_aluno->nome < atual->nome) {
@@ -76,7 +76,7 @@ bool inserir(TabelaHashAlunos *tabela_hash_alunos, Aluno *novo_aluno) {
         atual = atual->prox;
     }
     atual = atual2;
-    
+
     if (alunos->inicio == NULL && alunos->fim == NULL) {
         alunos->inicio = novo_aluno;
         alunos->fim = novo_aluno;
@@ -91,7 +91,7 @@ bool inserir(TabelaHashAlunos *tabela_hash_alunos, Aluno *novo_aluno) {
     } else {
         atual->ante->prox = novo_aluno;
         novo_aluno->ante = atual->ante;
-        
+
         atual->ante = novo_aluno;
         novo_aluno->prox = atual;
     }
@@ -100,9 +100,9 @@ bool inserir(TabelaHashAlunos *tabela_hash_alunos, Aluno *novo_aluno) {
     return true;
 }
 
-Aluno *pesquisar(TabelaHashAlunos *tabela_hash_alunos, const string& busca, bool (*funcao_verificadora)(const Aluno*, const string&)) {
+Aluno *pesquisar(TabelaHashAlunos *tabela_hash_alunos, const string &busca, bool (*funcao_verificadora)(const Aluno *, const string &)) {
     for (int i = 0; i < TAM; i++) {
-        Alunos* alunos = &tabela_hash_alunos->tabela[i];
+        Alunos *alunos = &tabela_hash_alunos->tabela[i];
         Aluno *atual = alunos->inicio;
         while (atual != NULL) {
             if (funcao_verificadora(atual, busca)) {
@@ -111,15 +111,15 @@ Aluno *pesquisar(TabelaHashAlunos *tabela_hash_alunos, const string& busca, bool
             atual = atual->prox;
         }
     }
-    
+
     return NULL;
 }
 
-bool verificar_aluno_por_matricula(const Aluno *aluno, const string& matricula) {
+bool verificar_aluno_por_matricula(const Aluno *aluno, const string &matricula) {
     return aluno->matricula == matricula;
 }
 
-bool verificar_aluno_por_cpf(const Aluno *aluno, const string& cpf) {
+bool verificar_aluno_por_cpf(const Aluno *aluno, const string &cpf) {
     return aluno->cpf == cpf;
 }
 
@@ -146,13 +146,13 @@ void remover_aluno_por_referencia(TabelaHashAlunos *tabela_hash_alunos, Aluno *a
 
 void imprime_aluno(Aluno *aluno) {
     printf(
-        "%s - %s - %s - %.2f - %d - %s - %s\n", 
+        "%s - %s - %s - %.2f - %d - %s - %s\n",
         aluno->matricula.c_str(),
         aluno->cpf.c_str(),
-        aluno->nome.c_str(), 
+        aluno->nome.c_str(),
         aluno->nota,
         aluno->idade,
-        aluno->curso.c_str(), 
+        aluno->curso.c_str(),
         aluno->cidade.c_str()
     );
 }
@@ -163,18 +163,18 @@ void imprime_alunos(Alunos *alunos) {
     while (atual != NULL) {
         imprime_aluno(atual);
         atual = atual->prox;
-    } 
+    }
 }
 
 void imprime_tabela_hash_alunos(TabelaHashAlunos *tabela_hash_alunos) {
     printf("Alunos:\n");
     for (int i = 0; i < TAM; i++) {
-        Alunos* alunos = &tabela_hash_alunos->tabela[i];
+        Alunos *alunos = &tabela_hash_alunos->tabela[i];
         imprime_alunos(alunos);
     }
 }
 
-void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string& nome_arquivo) {
+void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string &nome_arquivo) {
     ifstream file(nome_arquivo);
     string linha;
 
@@ -182,7 +182,7 @@ void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string
 
     while (getline(file, linha)) {
         vector<string> colunas;
-        
+
         size_t inicio = 0;
         size_t fim;
 
@@ -192,7 +192,7 @@ void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string
         }
         colunas.emplace_back(linha.substr(inicio));
 
-        Aluno *novo_aluno = new Aluno{NULL, NULL, colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6]};
+        Aluno *novo_aluno = new Aluno{ NULL, NULL, colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6] };
 
         inserir(tabela_hash_alunos, novo_aluno);
     }
@@ -210,7 +210,7 @@ int menu() {
     return opcao;
 }
 
-void buscar(TabelaHashAlunos *tabela_hash_alunos, const char *bucar_por, bool (*funcao_verificadora)(const Aluno*, const string&)) {
+void buscar(TabelaHashAlunos *tabela_hash_alunos, const char *bucar_por, bool (*funcao_verificadora)(const Aluno *, const string &)) {
     string busca;
     printf("Busca por %s: ", bucar_por);
     cin >> busca;
@@ -252,7 +252,7 @@ int main() {
 
     printf("Total %f segundos\n", double(total) / CLOCKS_PER_SEC);
     printf("Total alunos: %d\n", tabela_hash_alunos->tam);
-    
+
     int opcao;
 
     do {
@@ -273,7 +273,8 @@ int main() {
             break;
         }
 
-    } while (opcao != 0);
-    
+    }
+    while (opcao != 0);
+
     return 0;
 }
