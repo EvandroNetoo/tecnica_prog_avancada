@@ -123,7 +123,9 @@ bool verificar_aluno_por_cpf(const Aluno *aluno, const string& cpf) {
     return aluno->cpf == cpf;
 }
 
-void remover_aluno_por_referencia(Alunos *alunos, Aluno *aluno) {
+void remover_aluno_por_referencia(TabelaHashAlunos *tabela_hash_alunos, Aluno *aluno) {
+    Alunos *alunos = &tabela_hash_alunos->tabela[funcao_hash(aluno) % TAM];
+
     if (aluno == NULL) return;
     if (aluno == alunos->inicio && aluno == alunos->fim) {
         alunos->inicio = NULL;
@@ -197,21 +199,20 @@ void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string
 }
 
 int menu() {
-    cout
-    << "MENU:" << endl
-    << "1 - Buscar aluno por matrícula" << endl
-    << "2 - Buscar aluno por CPF" << endl
-    << "0 - Sair" << endl
-    << "Opção: ";
+    printf("MENU:\n");
+    printf("1 - Buscar aluno por matrícula\n");
+    printf("2 - Buscar aluno por CPF\n");
+    printf("0 - Sair\n");
+    printf("Opção: ");
 
     int opcao;
-    cin >> opcao;
+    scanf("%d", &opcao);
     return opcao;
 }
 
-void buscar(TabelaHashAlunos *tabela_hash_alunos, const string& bucar_por, bool (*funcao_verificadora)(const Aluno*, const string&)) {
+void buscar(TabelaHashAlunos *tabela_hash_alunos, const char *bucar_por, bool (*funcao_verificadora)(const Aluno*, const string&)) {
     string busca;
-    cout << "Busca por " << bucar_por << ": ";
+    printf("Busca por %s: ", bucar_por);
     cin >> busca;
     Aluno *aluno = pesquisar(tabela_hash_alunos, busca, funcao_verificadora);
 
@@ -220,14 +221,14 @@ void buscar(TabelaHashAlunos *tabela_hash_alunos, const string& bucar_por, bool 
         return;
     }
 
-    cout << "Dados: " << endl;
+    printf("Dados:\n");
     imprime_aluno(aluno);
 
     cout << "Digite 1 para remover esse aluno, qualquer coisa para continuar: ";
     string quer_remover_aluno;
     cin >> quer_remover_aluno;
     if (quer_remover_aluno == "1") {
-        remover_aluno_por_referencia(&tabela_hash_alunos->tabela[funcao_hash(aluno) % TAM], aluno);
+        remover_aluno_por_referencia(tabela_hash_alunos, aluno);
     }
 }
 
@@ -250,6 +251,7 @@ int main() {
     total += fim - inicio;
 
     printf("Total %f segundos\n", double(total) / CLOCKS_PER_SEC);
+    printf("Total alunos: %d\n", tabela_hash_alunos->tam);
     
     int opcao;
 
@@ -264,11 +266,10 @@ int main() {
         case 2:
             buscar(tabela_hash_alunos, "CPF", verificar_aluno_por_cpf);
             break;
-
         case 0:
             break;
         default:
-            cout << "Opção inválida." << endl;
+            printf("Opção inválida.\n");
             break;
         }
 
