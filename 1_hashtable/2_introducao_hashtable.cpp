@@ -1,11 +1,26 @@
+// Tamanho da tabela hash: 100
+// Inicializar tabela: 0.000003 segundos4ttt
+// Inserir alunos 513.161091 segundos
+// Total 513.161094 segundos
+
+
+// Tamanho da tabela hash: 1000000
+// Inicializar tabela: 0.009534 segundos
+// Inserir alunos 1.300364 segundos
+// Total 1.309898 segundos
+// Apenas remover os comentários
+
 #include <cstdlib>
 #include <cstdio>
 #include <string>
-#include <ios>
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include <sstream>
+#include <ctime>
+
+#define TAM 100
+// #define TAM 1000000
+
 using namespace std;
 
 struct Aluno {
@@ -26,16 +41,33 @@ struct Alunos {
     int tam;
 };
 
-bool inserir_ordenado(Alunos *alunos, Aluno *novo_aluno) {
-    if (alunos->inicio == NULL && alunos->fim == NULL) {
-        alunos->inicio = novo_aluno;
-        alunos->fim = novo_aluno;
-        alunos->tam++;
-        return true;
+struct TabelaHashAlunos {
+    Alunos tabela[TAM];
+    int tam;
+};
+
+void inicializar_tabela(TabelaHashAlunos *tabela_hash) {
+    for (int i = 0; i < TAM; i++) {
+        tabela_hash->tabela[i].inicio = NULL;
+        tabela_hash->tabela[i].fim = NULL;
+        tabela_hash->tabela[i].tam = 0;
     }
+    tabela_hash->tam = 0;
+}
+
+int funcao_hash(const Aluno* const aluno) {
+    // return stoi(aluno->cpf.substr(0, 3) + aluno->cpf.substr(4, 3) + aluno->cpf.substr(8, 3));
+    return stoi(aluno->cpf.substr(12, 2));
+}
+
+bool inserir(TabelaHashAlunos *tabela_hash_alunos, Aluno *novo_aluno) {
+    int index =  funcao_hash(novo_aluno) % TAM;
+
+    Alunos *alunos = &tabela_hash_alunos->tabela[index];
+    
     Aluno *atual = alunos->inicio, *atual2 = NULL;
     while (atual != NULL ) {
-        if (atual->matricula == novo_aluno->matricula || atual->cpf == novo_aluno->cpf ) {
+        if (atual->cpf == novo_aluno->cpf ) {
             return false;
         }
         if (atual2 == NULL && novo_aluno->nome < atual->nome) {
@@ -45,7 +77,10 @@ bool inserir_ordenado(Alunos *alunos, Aluno *novo_aluno) {
     }
     atual = atual2;
     
-    if (novo_aluno->nome <= alunos->inicio->nome) {
+    if (alunos->inicio == NULL && alunos->fim == NULL) {
+        alunos->inicio = novo_aluno;
+        alunos->fim = novo_aluno;
+    } else if (novo_aluno->nome <= alunos->inicio->nome) {
         alunos->inicio->ante = novo_aluno;
         novo_aluno->prox = alunos->inicio;
         alunos->inicio = novo_aluno;
@@ -61,20 +96,23 @@ bool inserir_ordenado(Alunos *alunos, Aluno *novo_aluno) {
         novo_aluno->prox = atual;
     }
     alunos->tam++;
+    tabela_hash_alunos->tam++;
     return true;
 }
 
-bool inserir_simples(Alunos *alunos, Aluno *novo_aluno) {
-    if (alunos->inicio == NULL && alunos->fim == NULL) {
-        alunos->inicio = novo_aluno;
-        alunos->fim = novo_aluno;
-    } else {
-        alunos->fim->prox = novo_aluno;
-        novo_aluno->ante = alunos->fim;
-        alunos->fim = novo_aluno;
+Aluno *pesquisar(TabelaHashAlunos *tabela_hash_alunos, const string& busca, bool (*funcao_verificadora)(const Aluno*, const string&)) {
+    for (int i = 0; i < TAM; i++) {
+        Alunos* alunos = &tabela_hash_alunos->tabela[i];
+        Aluno *atual = alunos->inicio;
+        while (atual != NULL) {
+            if (funcao_verificadora(atual, busca)) {
+                return atual;
+            }
+            atual = atual->prox;
+        }
     }
-    alunos->tam++;
-    return true;
+    
+    return NULL;
 }
 
 bool verificar_aluno_por_matricula(const Aluno *aluno, const string& matricula) {
@@ -83,17 +121,6 @@ bool verificar_aluno_por_matricula(const Aluno *aluno, const string& matricula) 
 
 bool verificar_aluno_por_cpf(const Aluno *aluno, const string& cpf) {
     return aluno->cpf == cpf;
-}
-
-Aluno *pesquisar(Alunos *alunos, const string& busca, bool (*funcao_verificadora)(const Aluno*, const string&)) {
-    Aluno *atual = alunos->inicio;
-    while (atual != NULL) {
-        if (funcao_verificadora(atual, busca)) {
-            return atual;
-        }
-        atual = atual->prox;
-    }
-    return NULL;
 }
 
 void remover_aluno_por_referencia(Alunos *alunos, Aluno *aluno) {
@@ -116,15 +143,20 @@ void remover_aluno_por_referencia(Alunos *alunos, Aluno *aluno) {
 }
 
 void imprime_aluno(Aluno *aluno) {
-    cout << aluno->matricula << " - " << aluno->cpf << " - " << aluno->nome << " - " 
-    << aluno->nota << " - " << aluno->idade << " - " << aluno->curso << " - " 
-    << aluno->cidade << endl;
+    printf(
+        "%s - %s - %s - %.2f - %d - %s - %s\n", 
+        aluno->matricula.c_str(),
+        aluno->cpf.c_str(),
+        aluno->nome.c_str(), 
+        aluno->nota,
+        aluno->idade,
+        aluno->curso.c_str(), 
+        aluno->cidade.c_str()
+    );
 }
 
 void imprime_alunos(Alunos *alunos) {
     Aluno *atual = alunos->inicio;
-
-    printf("Alunos:\n");
 
     while (atual != NULL) {
         imprime_aluno(atual);
@@ -132,16 +164,23 @@ void imprime_alunos(Alunos *alunos) {
     } 
 }
 
-void carregar_lista_de_alunos(Alunos *alunos, const string nome_arquivo) {
-    ifstream file(nome_arquivo);
+void imprime_tabela_hash_alunos(TabelaHashAlunos *tabela_hash_alunos) {
+    printf("Alunos:\n");
+    for (int i = 0; i < TAM; i++) {
+        Alunos* alunos = &tabela_hash_alunos->tabela[i];
+        imprime_alunos(alunos);
+    }
+}
 
+void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string& nome_arquivo) {
+    ifstream file(nome_arquivo);
     string linha;
 
     getline(file, linha);
 
     while (getline(file, linha)) {
         vector<string> colunas;
-
+        
         size_t inicio = 0;
         size_t fim;
 
@@ -152,9 +191,8 @@ void carregar_lista_de_alunos(Alunos *alunos, const string nome_arquivo) {
         colunas.emplace_back(linha.substr(inicio));
 
         Aluno *novo_aluno = new Aluno{NULL, NULL, colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6]};
-        cout << novo_aluno->matricula << endl;
-        // inserir_simples(alunos, novo_aluno);
-        inserir_ordenado(alunos, novo_aluno);
+
+        inserir(tabela_hash_alunos, novo_aluno);
     }
 }
 
@@ -171,11 +209,11 @@ int menu() {
     return opcao;
 }
 
-void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const string&)) {
+void buscar(TabelaHashAlunos *tabela_hash_alunos, const string& bucar_por, bool (*funcao_verificadora)(const Aluno*, const string&)) {
     string busca;
-    cout << "Busca: ";
+    cout << "Busca por " << bucar_por << ": ";
     cin >> busca;
-    Aluno *aluno = pesquisar(alunos, busca, funcao_verificadora);
+    Aluno *aluno = pesquisar(tabela_hash_alunos, busca, funcao_verificadora);
 
     if (aluno == NULL) {
         cout << "Nenhum aluno encontrado." << endl;
@@ -189,14 +227,30 @@ void buscar(Alunos *alunos, bool (*funcao_verificadora)(const Aluno*, const stri
     string quer_remover_aluno;
     cin >> quer_remover_aluno;
     if (quer_remover_aluno == "1") {
-        remover_aluno_por_referencia(alunos, aluno);
+        remover_aluno_por_referencia(&tabela_hash_alunos->tabela[funcao_hash(aluno) % TAM], aluno);
     }
 }
 
 int main() {
-    Alunos *alunos = new Alunos{NULL, NULL, 0};
-    carregar_lista_de_alunos(alunos, "../alunos_completos.csv");
-    imprime_alunos(alunos);
+    clock_t inicio, fim, total = 0;
+
+    printf("Tamanho da tabela hash: %d\n", TAM);
+
+    inicio = clock();
+    TabelaHashAlunos *tabela_hash_alunos = new TabelaHashAlunos;
+    inicializar_tabela(tabela_hash_alunos);
+    fim = clock();
+    printf("Inicializar tabela: %f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
+    total += fim - inicio;
+
+    inicio = clock();
+    carregar_lista_de_alunos(tabela_hash_alunos, "../alunos_completos.csv");
+    fim = clock();
+    printf("Inserir alunos %f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
+    total += fim - inicio;
+
+    printf("Total %f segundos\n", double(total) / CLOCKS_PER_SEC);
+    
     int opcao;
 
     do {
@@ -205,10 +259,10 @@ int main() {
         switch (opcao) {
 
         case 1:
-            buscar(alunos, verificar_aluno_por_matricula);
+            buscar(tabela_hash_alunos, "matrícula", verificar_aluno_por_matricula);
             break;
         case 2:
-            buscar(alunos, verificar_aluno_por_cpf);
+            buscar(tabela_hash_alunos, "CPF", verificar_aluno_por_cpf);
             break;
 
         case 0:
