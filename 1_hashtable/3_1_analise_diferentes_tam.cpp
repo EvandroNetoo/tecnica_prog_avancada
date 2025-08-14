@@ -3,28 +3,32 @@
 
 // Tamanho da tabela hash: 100
 // Inicializar tabela: 0.000002 segundos
-// Inserir alunos: 445.218962 segundos
-// Total: 445.218964 segundos
+// Inserir alunos: 459.025862 segundos
+// Total: 459.025864 segundos
+// Buscar alunos por nome: 0.000016 segundos
 
-// Tamanho da tabela hash: 1000
-// Inicializar tabela: 0.000012 segundos
-// Inserir alunos: 46.191516 segundos
-// Total: 46.191528 segundos
+// Inicializar tabela: 0.000008 segundos
+// Inserir alunos: 46.711336 segundos
+// Total: 46.711344 segundos
+// Buscar alunos por nome: 0.000016 segundos
 
 // Tamanho da tabela hash: 10000
-// Inicializar tabela: 0.000062 segundos
-// Inserir alunos: 4.987505 segundos
-// Total: 4.987567 segundos
+// Inicializar tabela: 0.000077 segundos
+// Inserir alunos: 5.154708 segundos
+// Total: 5.154785 segundos
+// Buscar alunos por nome: 0.000016 segundos
 
 // Tamanho da tabela hash: 100000
-// Inicializar tabela: 0.000620 segundos
-// Inserir alunos: 0.826754 segundos
-// Total: 0.827374 segundos
+// Inicializar tabela: 0.000650 segundos
+// Inserir alunos: 0.946131 segundos
+// Total: 0.946781 segundos
+// Buscar alunos por nome: 0.000016 segundos
 
 // Tamanho da tabela hash: 1000000
-// Inicializar tabela: 0.007626 segundos
-// Inserir alunos: 0.439445 segundos
-// Total: 0.447071 segundos
+// Inicializar tabela: 0.006516 segundos
+// Inserir alunos: 0.553118 segundos
+// Total: 0.559634 segundos
+// Buscar alunos por nome: 0.000015 segundos
 
 #include <cstdlib>
 #include <cstdio>
@@ -202,6 +206,10 @@ void imprime_tabela_hash_alunos(TabelaHashAlunos *tabela_hash_alunos) {
 
 void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string &nome_arquivo) {
     ifstream arquivo(nome_arquivo);
+    if (!arquivo.is_open()) {
+        printf("Erro ao abrir o arquivo de alunos.\n");
+        return;
+    }
     string linha;
 
     getline(arquivo, linha);  // ignora cabeçalho
@@ -226,6 +234,7 @@ void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string
 
         inserir(tabela_hash_alunos, novo_aluno);
     }
+    arquivo.close();
 }
 
 int menu() {
@@ -262,6 +271,37 @@ void buscar(TabelaHashAlunos *tabela_hash_alunos, const string &bucar_por, bool 
     }
 }
 
+Aluno *pesquisar_por_nome(TabelaHashAlunos *tabela_hash_alunos, const string &nome) {
+    for (int i = 0; i < TAM; i++) {
+        Alunos *alunos = &tabela_hash_alunos->tabela[i];
+
+        Aluno *atual = alunos->inicio;
+        while (atual != NULL) {
+            if (atual->nome >= nome) {
+                if (atual->nome == nome) {
+                    return atual;
+                }
+                break;
+            }
+            atual = atual->prox;
+        }
+    }
+    return NULL;
+}
+
+void benchmark_buscar_nome(TabelaHashAlunos *tabela_hash_alunos, const string &nome_arquivo) {
+    ifstream arquivo(nome_arquivo);
+    if (!arquivo.is_open()) {
+        printf("Erro ao abrir o arquivo de nomes.\n");
+        return;
+    }
+
+    string nome;
+    while (getline(arquivo, nome)) {
+        pesquisar_por_nome(tabela_hash_alunos, nome);
+    }
+}
+
 int main() {
     clock_t inicio, fim, total = 0;
 
@@ -282,29 +322,10 @@ int main() {
 
     printf("Total: %f segundos\n", double(total) / CLOCKS_PER_SEC);
 
-    // int opcao;
-
-    // do {
-    //     opcao = menu();
-
-    //     switch (opcao) {
-
-    //     case 1:
-    //         buscar(tabela_hash_alunos, "matrícula", verificar_aluno_por_matricula);
-    //         break;
-    //     case 2:
-    //         buscar(tabela_hash_alunos, "CPF", verificar_aluno_por_cpf);
-    //         break;
-
-    //     case 0:
-    //         break;
-    //     default:
-    //         printf("Opção inválida.\n");
-    //         break;
-    //     }
-
-    // }
-    // while (opcao != 0);
+    inicio = clock();
+    benchmark_buscar_nome(tabela_hash_alunos, "../nomes_a_buscar.txt");
+    fim = clock();
+    printf("Buscar alunos por nome: %f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
 
     return 0;
 }

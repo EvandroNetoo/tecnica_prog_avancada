@@ -4,27 +4,27 @@
 // Tamanho da tabela hash: 100
 // Inicializar tabela: 0.000002 segundos
 // Inserir alunos: 217.145056 segundos
-// Total: 217.145058 segundos (-52%)
+// Total: 217.145058 segundos (-52.6%)
 
 // Tamanho da tabela hash: 1000
-// Inicializar tabela: 0.000012 segundos
-// Inserir alunos: 22.959291 segundos
-// Total: 22.959303 segundos (-50%)
+// Inicializar tabela: 0.000009 segundos
+// Inserir alunos: 22.807910 segundos
+// Total: 22.807919 segundos (-51.1%)
 
 // Tamanho da tabela hash: 10000
-// Inicializar tabela: 0.000069 segundos
-// Inserir alunos: 3.068673 segundos
-// Total: 3.068742 segundos (-38%)
+// Inicializar tabela: 0.000080 segundos
+// Inserir alunos: 2.970245 segundos
+// Total: 2.970325 segundos (-42.3%)
 
 // Tamanho da tabela hash: 100000
-// Inicializar tabela: 0.000647 segundos
-// Inserir alunos: 0.828006 segundos
-// Total: 0.828653 segundos (-1%)
+// Inicializar tabela: 0.000593 segundos
+// Inserir alunos: 0.872467 segundos
+// Total: 0.873060 segundos (-7.7%)
 
 // Tamanho da tabela hash: 1000000
-// Inicializar tabela: 0.006685 segundos
-// Inserir alunos: 0.481832 segundos
-// Total: 0.488517 segundos (+9%)
+// Inicializar tabela: 0.006417 segundos
+// Inserir alunos: 0.563911 segundos
+// Total: 0.570328 segundos (+3.6%)
 
 #include <cstdlib>
 #include <cstdio>
