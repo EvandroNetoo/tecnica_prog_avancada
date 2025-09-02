@@ -206,7 +206,7 @@ void ordenar_por_nome(TabelaHashAlunos *tabela_hash_alunos) {
         Alunos *alunos = &tabela_hash_alunos->tabela[i];
         if (alunos->tam <= 1) continue;
 
-        std::vector<Aluno *> vetor_alunos(alunos->tam);
+        vector<Aluno *> vetor_alunos(alunos->tam);
 
         Aluno *atual = alunos->inicio;
         for (int j = 0; j < alunos->tam; j++) {
@@ -214,7 +214,7 @@ void ordenar_por_nome(TabelaHashAlunos *tabela_hash_alunos) {
             atual = atual->prox;
         }
 
-        std::sort(
+        sort(
             vetor_alunos.begin(),
             vetor_alunos.end(),
             [](Aluno *a, Aluno *b) { return a->nome < b->nome; }
@@ -229,7 +229,7 @@ void ordenar_por_nome(TabelaHashAlunos *tabela_hash_alunos) {
         vetor_alunos.back()->prox = nullptr;
         alunos->inicio = vetor_alunos[0];
         alunos->fim = vetor_alunos.back();
-    }
+    }   
 }
 
 void carregar_lista_de_alunos(TabelaHashAlunos *tabela_hash_alunos, const string &nome_arquivo) {
