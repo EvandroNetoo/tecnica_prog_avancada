@@ -143,12 +143,16 @@ protected:
         while (true) {
             Item &item = this->tabela_hash[index];
 
-            if (!item.deletado && item.oculpado && item.chave == chave) {
-                return item;
+            if (item.oculpado) {
+                if (!item.deletado && item.chave == chave) {
+                    return item;
+                }
+            } else {
+                throw out_of_range("Chave não encontrada");
             }
 
             index = (index + 1) % this->capacidade;
-            if ((item.deletado && !item.oculpado) || index == index_inicial) {
+            if (index == index_inicial) {
                 throw out_of_range("Chave não encontrada");
             }
         }
@@ -185,13 +189,21 @@ public:
         this->rehash();
     }
 
-    optional<Valor> obter(const Chave &chave, const optional<const Valor &> valor_default = nullopt) {
+    optional<Valor> obter(const Chave &chave, optional<Valor> valor_default = nullopt) {
         try {
             return this->em(chave);
         }
-        catch (const out_of_range &e) {
+        catch (const out_of_range &) {
             return valor_default;
         }
+    }
+
+    size_t obter_tamanho() {
+        return this->tamanho;
+    }
+
+    size_t obter_capacidade() {
+        return this->capacidade;
     }
 
     Iterator begin() { return Iterator(&tabela_hash, 0, tabela_hash.size()); }
@@ -264,7 +276,7 @@ namespace std {
     };
 }
 
-void carregar_lista_de_alunos(Set<Aluno *> &set_alunos, const string &nome_arquivo) {
+void carregar_lista_de_alunos(Dict<string, Aluno *> &dict_alunos, const string &nome_arquivo) {
     ifstream arquivo(nome_arquivo);
     string linha;
 
@@ -287,20 +299,27 @@ void carregar_lista_de_alunos(Set<Aluno *> &set_alunos, const string &nome_arqui
         colunas[i] = linha.substr(inicio);
 
         Aluno *novo_aluno = new Aluno{ colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6] };
+        string nome = colunas[2];
 
-        set_alunos.adicionar(novo_aluno);
+        if (!dict_alunos.obter(nome).has_value()) {
+            dict_alunos.inserir(nome, novo_aluno);
+        } else {
+            cout << nome << endl;
+        }
     }
 }
 
 int main() {
     clock_t inicio, fim, total = 0;
-    Set<Aluno *> set_alunos;
+    Dict<string, Aluno *> dict_alunos;
 
     inicio = clock();
-    carregar_lista_de_alunos(set_alunos, "../alunos_completos.csv");
+    carregar_lista_de_alunos(dict_alunos, "../alunos_completos.csv");
     fim = clock();
     printf("Inserir alunos: %f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
     total += fim - inicio;
+
+    printf("Tamanho: %zu\nCapacidade: %zu\n", dict_alunos.obter_tamanho(), dict_alunos.obter_capacidade());
 
     return 0;
 }
