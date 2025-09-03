@@ -5,24 +5,26 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include <ctime>
+#include <chrono>
 #include <functional>
 #include <cmath>
+#include <optional>
 #include <climits>
 
 using namespace std;
 
 template <typename Chave, typename Valor>
 class Dict {
-private:
+protected:
     struct Item {
         Chave chave;
         Valor valor;
+        bool oculpado;
         bool deletado;
-        Item() : chave(), valor(), deletado(true) {}
+        Item() : chave(), valor(), oculpado(false), deletado(false) {}
     };
 
-    Item *tabela_hash;
+    vector<Item> tabela_hash;
     size_t tamanho;
     size_t capacidade;
     hash<Chave> funcao_hash;
@@ -30,86 +32,37 @@ private:
     const float MIN_LOAD_FACTOR = 0.3;
     const size_t TAMANHO_MINIMO = 11;
 
-    void criar_tabela_hash() {
-        this->tabela_hash = new Item[this->capacidade];
-    }
-
     class Iterator {
-        Item *atual;
-        Item *fim;
+        vector<Item> *tabela;
+        size_t pos;
+        size_t fim;
 
         void avancar() {
-            while (atual < fim && atual->deletado) {
-                ++atual;
+            while (pos < fim && ((*tabela)[pos].deletado || !(*tabela)[pos].oculpado)) {
+                ++pos;
             }
         }
 
     public:
-        Iterator(Item *pos, Item *end) : atual(pos), fim(end) {
-            avancar(); // pula deletados
+        Iterator(vector<Item> *tab, size_t position, size_t end)
+            : tabela(tab), pos(position), fim(end) {
+            avancar(); // pula deletados e vazios
         }
 
-        tuple<Chave, Valor> operator*() const {
-            return { atual->chave, atual->valor };
+        pair<const Chave &, Valor &> operator*() const {
+            return { (*tabela)[pos].chave, (*tabela)[pos].valor };
         }
 
         Iterator &operator++() {
-            ++atual;
+            ++pos;
             avancar();
             return *this;
         }
 
         bool operator!=(const Iterator &outro) const {
-            return atual != outro.atual;
+            return pos != outro.pos || tabela != outro.tabela;
         }
-
-
     };
-
-    size_t obter_index(const Chave &chave) {
-        return this->funcao_hash(chave) % this->capacidade;
-    }
-
-    Item &obter_item_para_inserir(const Chave &chave) {
-        size_t index = obter_index(chave);
-        size_t index_inicial = index;
-
-        Item *primeiro_deletado = nullptr;
-
-        while (true) {
-            Item &item = this->tabela_hash[index];
-
-            if (item.deletado) {
-                return item;
-            } else if (item.chave == chave) {
-                return item; // chave já existe
-            }
-
-            index = (index + 1) % this->capacidade;
-            if (index == index_inicial) {
-                if (primeiro_deletado) return *primeiro_deletado;
-                throw out_of_range("Tabela cheia");
-            }
-        }
-    }
-
-    Item &obter_item_existente(const Chave &chave) {
-        size_t index = obter_index(chave);
-        size_t index_inicial = index;
-
-        while (true) {
-            Item &item = this->tabela_hash[index];
-
-            if (!item.deletado && item.chave == chave) {
-                return item; // achou
-            }
-
-            index = (index + 1) % this->capacidade;
-            if (index == index_inicial) {
-                throw out_of_range("Chave não encontrada");
-            }
-        }
-    }
 
     size_t primo_mais_proximo(size_t n) {
         if (n & 1) {
@@ -135,51 +88,89 @@ private:
 
 
     void rehash() {
-        bool redimensionar = false;
-        size_t antiga_capacidade = 0;
+        size_t nova_capacidade = 0;
 
-        float load = static_cast<float>(this->tamanho) / static_cast<float>(this->capacidade);
+        float load = this->tamanho / (float)this->capacidade;
 
         if (load < this->MIN_LOAD_FACTOR && this->capacidade > this->TAMANHO_MINIMO) {
-            antiga_capacidade = this->capacidade;
-            this->capacidade /= 2;
-            redimensionar = true;
+            nova_capacidade = this->capacidade / 2;
         } else if (load > this->MAX_LOAD_FACTOR) {
-            antiga_capacidade = this->capacidade;
-            this->capacidade *= 2;
-            redimensionar = true;
+            nova_capacidade = this->capacidade * 2;
         }
+        if (nova_capacidade != 0) {
+            nova_capacidade = max(this->primo_mais_proximo(nova_capacidade), this->TAMANHO_MINIMO);
 
-        if (redimensionar) {
-            this->capacidade = this->primo_mais_proximo(this->capacidade);
+            vector<Item> nova_tabela_hash(nova_capacidade);
 
-            Item *antiga_tabela_hash = this->tabela_hash;
-            this->criar_tabela_hash();
-
-            for (size_t i = 0; i < antiga_capacidade; i++) {
-                Item &item = antiga_tabela_hash[i];
-                if (!item.deletado) { // <=== CORREÇÃO
-                    this->inserir(item.chave, item.valor);
+            for (const Item &item : this->tabela_hash) {
+                if (item.oculpado && !item.deletado) {
+                    size_t index = funcao_hash(item.chave) % nova_capacidade;
+                    while (nova_tabela_hash[index].oculpado) {
+                        index = (index + 1) % nova_capacidade;
+                    }
+                    nova_tabela_hash[index] = item;
                 }
             }
+            this->tabela_hash = move(nova_tabela_hash);
+            this->capacidade = nova_capacidade;
+        }
+    }
 
-            delete[] antiga_tabela_hash; // <=== CORREÇÃO
+    size_t obter_index(const Chave &chave) {
+        return this->funcao_hash(chave) % this->capacidade;
+    }
+
+    Item &obter_item_para_inserir(const Chave &chave) {
+        size_t index = obter_index(chave);
+        size_t index_inicial = index;
+
+        Item *item = &this->tabela_hash[index];
+
+        while (item->oculpado && !item->deletado && item->chave != chave) {
+            index = (index + 1) % this->capacidade;
+            item = &this->tabela_hash[index];
+            if (index == index_inicial) {
+                throw out_of_range("Tabela hash cheia.");
+            }
+        }
+        return *item;
+    }
+
+    Item &obter_item_existente(const Chave &chave) {
+        size_t index = obter_index(chave);
+        size_t index_inicial = index;
+
+        while (true) {
+            Item &item = this->tabela_hash[index];
+
+            if (!item.deletado && item.oculpado && item.chave == chave) {
+                return item;
+            }
+
+            index = (index + 1) % this->capacidade;
+            if ((item.deletado && !item.oculpado) || index == index_inicial) {
+                throw out_of_range("Chave não encontrada");
+            }
         }
     }
 
 public:
     Dict() {
         this->capacidade = TAMANHO_MINIMO;
-        this->criar_tabela_hash();
+        this->tabela_hash.resize(this->capacidade);
+        this->tamanho = 0;
     }
 
-    void inserir(const Chave chave, const Valor valor) {
+    void inserir(const Chave &chave, const Valor &valor) {
         Item &item = this->obter_item_para_inserir(chave);
-        item.chave = chave;
+        if (!item.oculpado || item.deletado) {
+            item.chave = chave;
+            item.oculpado = true;
+            item.deletado = false;
+            this->tamanho++;
+        }
         item.valor = valor;
-        item.deletado = false;
-        this->tamanho++;
-        rehash();
+        this->rehash();
     }
 
     Valor em(const Chave &chave) {
@@ -191,10 +182,10 @@ public:
         Item &item = this->obter_item_existente(chave);
         item.deletado = true;
         this->tamanho--;
-        rehash();
+        this->rehash();
     }
 
-    Valor obter(const Chave &chave, const Valor valor_default) {
+    optional<Valor> obter(const Chave &chave, const optional<const Valor &> valor_default = nullopt) {
         try {
             return this->em(chave);
         }
@@ -203,15 +194,54 @@ public:
         }
     }
 
-
-    Iterator begin() { return Iterator(tabela_hash, tabela_hash + capacidade); }
-    Iterator end() { return Iterator(tabela_hash + capacidade, tabela_hash + capacidade); }
+    Iterator begin() { return Iterator(&tabela_hash, 0, tabela_hash.size()); }
+    Iterator end() { return Iterator(&tabela_hash, tabela_hash.size(), tabela_hash.size()); }
 };
 
 
 
-template <typename Chave>
-class Set : private Dict<Chave, bool> {
+template <typename Valor>
+class Set : protected Dict<Valor, bool> {
+protected:
+    // Iterator do Set
+    class Iterator {
+        using DictIterator = typename Dict<Valor, bool>::Iterator;
+        DictIterator it;
+
+    public:
+        Iterator(const DictIterator &dict_it) : it(dict_it) {}
+
+        const Valor &operator*() const { return (*it).first; } // retorna só a chave (valor do Set)
+        Iterator &operator++() { ++it; return *this; }
+        bool operator!=(const Iterator &outro) const { return it != outro.it; }
+    };
+
+public:
+    Set() {}
+
+    void adicionar(const Valor &valor) {
+        this->inserir(valor, true);
+    }
+
+    bool contem(const Valor &valor) {
+        try {
+            return this->em(valor);
+        }
+        catch (const out_of_range &) {
+            return false;
+        }
+    }
+
+    void remover(const Valor &valor) {
+        try {
+            Dict<Valor, bool>::remover(valor);
+        }
+        catch (const out_of_range &) {}
+    }
+
+
+    Iterator begin() { return Iterator(Dict<Valor, bool>::begin()); }
+    Iterator end() { return Iterator(Dict<Valor, bool>::end()); }
 };
 
 struct Aluno {
@@ -234,90 +264,43 @@ namespace std {
     };
 }
 
+void carregar_lista_de_alunos(Set<Aluno *> &set_alunos, const string &nome_arquivo) {
+    ifstream arquivo(nome_arquivo);
+    string linha;
 
-template<typename K, typename V>
-size_t count_items(Dict<K, V> &d) {
-    size_t c = 0;
-    for (auto it = d.begin(); it != d.end(); ++it) ++c;
-    return c;
+    getline(arquivo, linha);  // ignora cabeçalho
+
+
+    string colunas[7];
+    while (getline(arquivo, linha)) {
+
+        size_t inicio = 0;
+        size_t fim;
+
+
+        int i = 0;
+        while ((fim = linha.find(',', inicio)) != string::npos) {
+            colunas[i] = linha.substr(inicio, fim - inicio);
+            inicio = fim + 1;
+            i++;
+        }
+        colunas[i] = linha.substr(inicio);
+
+        Aluno *novo_aluno = new Aluno{ colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6] };
+
+        set_alunos.adicionar(novo_aluno);
+    }
 }
 
 int main() {
-    Dict<string, int> d;
-    const int TOTAL = 1000000;        // quantidade total a inserir
-    const int REMOVER_AT = 1000000;   // remover essa quantidade depois
+    clock_t inicio, fim, total = 0;
+    Set<Aluno *> set_alunos;
 
-    cout << ">>> Inserindo " << TOTAL << " itens (testando rehash-up)..." << endl;
-    for (int i = 0; i < TOTAL; ++i) {
-        string k = "k" + to_string(i);
-        d.inserir(k, i);
+    inicio = clock();
+    carregar_lista_de_alunos(set_alunos, "../alunos_completos.csv");
+    fim = clock();
+    printf("Inserir alunos: %f segundos\n", double(fim - inicio) / CLOCKS_PER_SEC);
+    total += fim - inicio;
 
-        // checagens periódicas de integridade
-        if ((i + 1) % 25 == 0) {
-            cout << "  Inseridos: " << (i + 1) << "  |  iters encontrados: " << count_items(d) << endl;
-            // garante que todos os já inseridos retornam o valor correto
-            for (int j = 0; j <= i; ++j) {
-                string kj = "k" + to_string(j);
-                int val = d.obter(kj, INT_MIN);
-                if (val != j) {
-                    cerr << "ERRO: chave " << kj << " devolveu " << val << " (esperado " << j << ")" << endl;
-                    return 1;
-                }
-            }
-        }
-    }
-
-    cout << "Verificação pós-inserção OK. total via iterator = " << count_items(d) << endl;
-
-    // sobrescreve um valor para testar atualização durante/apos rehash
-    cout << ">>> Testando sobrescrita: k50 -> 5000" << endl;
-    d.inserir("k50", 5000);
-    if (d.obter("k50", -1) != 5000) {
-        cerr << "ERRO: sobrescrita falhou para k50" << endl;
-        return 1;
-    }
-
-    cout << ">>> Removendo " << REMOVER_AT << " itens (testando rehash-down)..." << endl;
-    for (int i = 0; i < REMOVER_AT; ++i) {
-        string k = "k" + to_string(i);
-        try {
-            d.remover(k);
-        }
-        catch (const out_of_range &e) {
-            cerr << "Exceção ao remover " << k << ": " << e.what() << endl;
-            return 1;
-        }
-
-        if ((i + 1) % 25 == 0) {
-            cout << "  Removidos: " << (i + 1) << "  |  iters encontrados: " << count_items(d) << endl;
-            // validações: removidos não existem; demais existem
-            for (int j = 0; j <= i; ++j) {
-                string kj = "k" + to_string(j);
-                int got = d.obter(kj, INT_MIN);
-                if (got != INT_MIN) {
-                    cerr << "ERRO: chave removida " << kj << " ainda retorna " << got << endl;
-                    return 1;
-                }
-            }
-            for (int j = i + 1; j < TOTAL; ++j) {
-                string kj = "k" + to_string(j);
-                int got = d.obter(kj, INT_MIN);
-                if (got != j && !(kj == "k50" && got == 5000)) { // k50 foi sobrescrita
-                    cerr << "ERRO: chave restante " << kj << " devolveu " << got << " (esperado " << j << ")" << endl;
-                    return 1;
-                }
-            }
-        }
-    }
-
-    cout << "Verificação pós-remoção OK. itens finais via iterator = " << count_items(d) << endl;
-
-    cout << "Itens restantes (iterando):" << endl;
-    for (auto it = d.begin(); it != d.end(); ++it) {
-        auto [k, v] = *it;
-        cout << "  " << k << " -> " << v << endl;
-    }
-
-    cout << "\n>>> Teste de rehash concluído com sucesso (integridade mantida)." << endl;
     return 0;
 }
