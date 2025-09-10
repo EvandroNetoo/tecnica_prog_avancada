@@ -87,7 +87,17 @@ protected:
     }
 
 
-    void rehash() {
+    
+    size_t obter_index(const Chave &chave) {
+        return this->funcao_hash(chave) % this->capacidade;
+    }
+    
+    size_t rehash(const size_t &hash1, const size_t &capacidade, int tentativa) {
+        size_t hash2 = 1 + (hash1 % (capacidade - 1));
+        return (hash1 + tentativa * hash2) % capacidade;
+    }
+
+    void redimencionar() {
         size_t nova_capacidade = 0;
 
         float load = this->tamanho / (float)this->capacidade;
@@ -104,9 +114,11 @@ protected:
 
             for (const Item &item : this->tabela_hash) {
                 if (item.oculpado && !item.deletado) {
-                    size_t index = funcao_hash(item.chave) % nova_capacidade;
+                    size_t h1 = funcao_hash(item.chave) % nova_capacidade;
+                    size_t index = h1;
+                    int tentativa = 0;
                     while (nova_tabela_hash[index].oculpado) {
-                        index = (index + 1) % nova_capacidade;
+                        index = this->rehash(h1, nova_capacidade, ++tentativa);
                     }
                     nova_tabela_hash[index] = item;
                 }
@@ -116,30 +128,26 @@ protected:
         }
     }
 
-    size_t obter_index(const Chave &chave) {
-        return this->funcao_hash(chave) % this->capacidade;
-    }
-
     Item &obter_item_para_inserir(const Chave &chave) {
-        size_t index = obter_index(chave);
-        size_t index_inicial = index;
+        size_t h1 = obter_index(chave);
+        size_t index = h1;
 
         Item *item = &this->tabela_hash[index];
 
+        int tentativa = 0;
         while (item->oculpado && !item->deletado && item->chave != chave) {
-            index = (index + 1) % this->capacidade;
+            index = this->rehash(h1, this->capacidade, ++tentativa);
             item = &this->tabela_hash[index];
-            if (index == index_inicial) {
-                throw out_of_range("Tabela hash cheia.");
-            }
+            this->count_colisao++;
         }
         return *item;
     }
 
     Item &obter_item_existente(const Chave &chave) {
-        size_t index = obter_index(chave);
-        size_t index_inicial = index;
+        size_t h1 = obter_index(chave);
+        size_t index = h1;
 
+        int tentativa = 0;
         while (true) {
             Item &item = this->tabela_hash[index];
 
@@ -151,10 +159,7 @@ protected:
                 throw out_of_range("Chave não encontrada");
             }
 
-            index = (index + 1) % this->capacidade;
-            if (index == index_inicial) {
-                throw out_of_range("Chave não encontrada");
-            }
+            index = this->rehash(h1, this->capacidade, ++tentativa);
         }
     }
 
@@ -165,6 +170,7 @@ public:
         this->tamanho = 0;
     }
 
+    size_t count_colisao = 0;
     void inserir(const Chave &chave, const Valor &valor) {
         Item &item = this->obter_item_para_inserir(chave);
         if (!item.oculpado || item.deletado) {
@@ -174,10 +180,10 @@ public:
             this->tamanho++;
         }
         item.valor = valor;
-        this->rehash();
+        this->redimencionar();
     }
 
-    Valor em(const Chave &chave) {
+    const Valor& em(const Chave &chave) {
         Item &item = this->obter_item_existente(chave);
         return item.valor;
     }
@@ -186,7 +192,7 @@ public:
         Item &item = this->obter_item_existente(chave);
         item.deletado = true;
         this->tamanho--;
-        this->rehash();
+        this->redimencionar();
     }
 
     optional<Valor> obter(const Chave &chave, optional<Valor> valor_default = nullopt) {
@@ -301,12 +307,22 @@ void carregar_lista_de_alunos(Dict<string, Aluno *> &dict_alunos, const string &
         Aluno *novo_aluno = new Aluno{ colunas[0], colunas[1], colunas[2], stof(colunas[3]), stoi(colunas[4]), colunas[5], colunas[6] };
         string nome = colunas[2];
 
-        if (!dict_alunos.obter(nome).has_value()) {
-            dict_alunos.inserir(nome, novo_aluno);
-        } else {
-            cout << nome << endl;
-        }
+        dict_alunos.inserir(nome, novo_aluno);
+
     }
+}
+
+void imprime_aluno(Aluno *aluno) {
+    printf(
+        "%s - %s - %s - %.2f - %d - %s - %s\n",
+        aluno->matricula.c_str(),
+        aluno->cpf.c_str(),
+        aluno->nome.c_str(),
+        aluno->nota,
+        aluno->idade,
+        aluno->curso.c_str(),
+        aluno->cidade.c_str()
+    );
 }
 
 int main() {
@@ -321,5 +337,8 @@ int main() {
 
     printf("Tamanho: %zu\nCapacidade: %zu\n", dict_alunos.obter_tamanho(), dict_alunos.obter_capacidade());
 
+    cout << "Colisões: " << dict_alunos.count_colisao << endl;
+
+    imprime_aluno(dict_alunos.em("José Porto Pardo"));
     return 0;
 }
