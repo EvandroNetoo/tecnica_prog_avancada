@@ -44,7 +44,7 @@ ostream &operator<<(ostream &os, const Aluno &a) {
 }
 
 template <typename Valor>
-class ArvoreBinariaVetor {
+class ArvoreBinariaNo {
 private:
     struct No {
         Valor valor;
@@ -153,13 +153,13 @@ private:
     size_t tamanho;
     bool inserir_repetido;
 public:
-    ArvoreBinariaVetor(bool inserir_repetido = true) {
+    ArvoreBinariaNo(bool inserir_repetido = true) {
         this->inserir_repetido = inserir_repetido;
         this->raiz = nullptr;
         this->tamanho = 0;
     }
 
-    ~ArvoreBinariaVetor() {
+    ~ArvoreBinariaNo() {
         destruir(raiz);
     }
 
@@ -216,7 +216,7 @@ public:
 
 
 
-void carregar_lista_de_alunos(ArvoreBinariaVetor<Aluno> &arvore_alunos, const string &nome_arquivo) {
+void carregar_lista_de_alunos(ArvoreBinariaNo<Aluno> &arvore_alunos, const string &nome_arquivo) {
     ifstream arquivo(nome_arquivo);
     string linha;
 
@@ -246,7 +246,7 @@ void carregar_lista_de_alunos(ArvoreBinariaVetor<Aluno> &arvore_alunos, const st
 
 int main() {
     clock_t inicio, fim, total = 0;
-    ArvoreBinariaNo<Aluno> arvore_alunos(pow(2, 20));
+    ArvoreBinariaNo<Aluno> arvore_alunos;
 
     inicio = clock();
     carregar_lista_de_alunos(arvore_alunos, "../alunos_completos.csv");
