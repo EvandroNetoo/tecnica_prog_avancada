@@ -127,8 +127,9 @@ private:
             }
             // Caso 2: Nó com apenas um filho
             else if (!no_esq.has_value()) {
-                return true;no.reset();
+                no.reset();
                 trocar_rec(indice, i_dir);
+                return true;
             } else if (!no_dir.has_value()) {
                 no.reset();
                 trocar_rec(indice, i_esq);
@@ -253,6 +254,78 @@ public:
     void pos_ordem() {
         this->pos_ordem_rec(0);
     }
+    //secondary function
+    void desenha_arvore_horiz(size_t indice, int depth, char *path, bool direita, int espacoEntreNiveis = 6)
+    {
+        // stopping condition
+        if (indice >= this->capacidade || !this->dados[indice].has_value())
+            return;
+
+        // increase spacing
+        depth++;
+
+        // start with direita no
+        desenha_arvore_horiz(get_i_dir(indice), depth, path, true, espacoEntreNiveis);
+
+        // set | draw map
+        path[depth - 2] = 0;
+
+        if (direita)
+            path[depth - 2] = 1;
+
+        size_t i_esq = get_i_esq(indice);
+        if (i_esq < this->capacidade && this->dados[i_esq].has_value())
+            path[depth - 1] = 1;
+
+        // print root after spacing
+        printf("\n");
+
+        for (int i = 0; i < depth - 1; i++)
+        {
+            if (i == depth - 2)
+                printf("+");
+            else if (path[i])
+                printf("|");
+            else
+                printf(" ");
+
+            for (int j = 1; j < espacoEntreNiveis; j++)
+                if (i < depth - 2)
+                    printf(" ");
+                else
+                    printf("-");
+        }
+
+        cout << this->dados[indice].value() << "\n";
+
+        if (depth == 1)
+            cout << "(raiz)\n";
+
+        // vertical espacors below
+        for (int i = 0; i < depth; i++)
+        {
+            if (path[i])
+                printf("|");
+            else
+                printf(" ");
+
+            for (int j = 1; j < espacoEntreNiveis; j++)
+                printf(" ");
+        }
+
+        // go to esquerda no
+        desenha_arvore_horiz(get_i_esq(indice), depth, path, false);
+    }
+
+    //primary function
+    void draw_arvore_hor()
+    {
+        // should check if we don't exceed this somehow..
+        char path[255] = {};
+
+        //initial depth is 0
+        desenha_arvore_horiz(0, 0, path, false);
+    }
 };
 
 
@@ -287,16 +360,41 @@ void carregar_lista_de_alunos(ArvoreBinariaVetor<Aluno> &arvore_alunos, const st
 
 
 int main() {
-    clock_t inicio, fim, total = 0;
-    ArvoreBinariaVetor<Aluno> arvore_alunos(pow(2, 20));
+    ArvoreBinariaVetor<int> a(pow(2, 5));
 
-    inicio = clock();
-    carregar_lista_de_alunos(arvore_alunos, "../alunos_completos.csv");
-    fim = clock();
-    total += fim - inicio;
-    printf("Inserir alunos: %f segundos\n", double(total) / CLOCKS_PER_SEC);
-    printf("Altura árvore: %d\n", arvore_alunos.altura());
-    printf("Tamanho árvore: %zu\n", arvore_alunos.get_tamanho());
+    a.inserir(4);
+    a.inserir(3);
+    a.inserir(7);
+    a.inserir(6);
+    a.inserir(10);
+    // a.inserir(9);
+    a.inserir(12);
+    a.inserir(11);
+
+    a.remover(7);
+
+    a.draw_arvore_hor();
+    cout << "[";
+    for (size_t i = 0; i < a.dados.size(); ++i) {
+        if (i > 0) cout << ", ";
+        if (a.dados[i].has_value())
+            cout << a.dados[i].value();
+        else
+            cout << "None";
+    }
+    cout << "]" << endl;
+
+
+    // clock_t inicio, fim, total = 0;
+    // ArvoreBinariaVetor<Aluno> arvore_alunos(pow(2, 20));
+
+    // inicio = clock();
+    // carregar_lista_de_alunos(arvore_alunos, "../alunos_completos.csv");
+    // fim = clock();
+    // total += fim - inicio;
+    // printf("Inserir alunos: %f segundos\n", double(total) / CLOCKS_PER_SEC);
+    // printf("Altura árvore: %d\n", arvore_alunos.altura());
+    // printf("Tamanho árvore: %zu\n", arvore_alunos.get_tamanho());
 
     return 0;
 }

@@ -2,7 +2,8 @@
 #include <string>
 #include <fstream>
 #include <chrono>
-
+#include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -48,21 +49,69 @@ class ArvoreBinariaNo {
 private:
     struct No {
         Valor valor;
+        int altura;
         No *esq;
         No *dir;
 
     };
 
-    bool  inserir_rec(const Valor &valor, No *&no) {
+    struct Retorno {
+        bool inseriu;
+        No *novo_filho;
+    };
+
+    No *rse(No *no) {
+        No *filho_direito = no->dir;
+        No *filho_esquerdo_da_direita = filho_direito->esq;
+
+        filho_direito->esq = no;
+        no->dir = filho_esquerdo_da_direita;
+
+        no->bal = get_bal(no);
+        filho_direito->bal = get_bal(filho_direito);
+
+        return filho_direito;
+    }
+
+    No *rsd(No *no) {
+        No *filho_esquerdo = no->esq;
+        No *filho_direito_da_esquerda = filho_esquerdo->dir;
+
+        filho_esquerdo->dir = no;
+        no->esq = filho_direito_da_esquerda;
+
+        no->bal = get_bal(no);
+        filho_esquerdo->bal = get_bal(filho_esquerdo);
+
+        return filho_esquerdo;
+    }
+
+    No *balancear_no(No *no, No *no_inserido) {
+        int bal_no = get_bal(no), bal_no_inserido = get_bal(no_inserido);
+
+        if (bal_no == 2 && bal_no_inserido >= 0) return rsd(no);
+
+    }
+
+    Retorno inserir_rec(const Valor &valor, No *&no) {
         if (no == nullptr) {
-            no = new No{ valor, nullptr, nullptr };
-            return true;
+            no = new No{ valor, 0, nullptr, nullptr };
+            return Retorno{ true, no };
         } else if (valor < no->valor) {
-            return this->inserir_rec(valor, no->esq);
+            Retorno retorno = this->inserir_rec(valor, no->esq);
+
+            if (!retorno.inseriu) return Retorno{ false, no };  // não inseriu
+
+            if (get_altura(no->esq) > get_altura(no->esq)) no->altura++;  // cresceu
+
+            if (abs(get_bal(no)) <= 1) return Retorno{ true, no };  // está balanceado
+
+
+
         } else if (valor > no->valor) {
             return this->inserir_rec(valor, no->dir);
         } else {
-            if (!this->inserir_repetido) return false;
+            if (!this->inserir_repetido) return { false ,nullptr };
             return this->inserir_rec(valor, no->dir);
         }
     }
@@ -116,8 +165,11 @@ private:
     }
 
     int get_altura(const No *no) {
-        if (no == nullptr) return 0;
-        return 1 + max<int>(this->get_altura(no->esq), this->get_altura(no->dir));
+        return no ? no->altura : -1;
+    }
+
+    int get_bal(const No *no) {
+        return no ? get_altura(no->esq) - get_altura(no->dir) : 0;
     }
 
     void destruir(No *no) {
@@ -246,7 +298,7 @@ void carregar_lista_de_alunos(ArvoreBinariaNo<Aluno> &arvore_alunos, const strin
 
 int main() {
     clock_t inicio, fim, total = 0;
-    ArvoreBinariaNo<Aluno> arvore_alunos;
+    ArvoreBinariaNo<Aluno> arvore_alunos(false);
 
     inicio = clock();
     carregar_lista_de_alunos(arvore_alunos, "../alunos_completos.csv");
