@@ -55,11 +55,6 @@ private:
 
     };
 
-    struct Retorno {
-        bool inseriu;
-        No *novo_filho;
-    };
-
     No *rse(No *no) {
         No *filho_direito = no->dir;
         No *filho_esquerdo_da_direita = filho_direito->esq;
@@ -67,8 +62,8 @@ private:
         filho_direito->esq = no;
         no->dir = filho_esquerdo_da_direita;
 
-        no->bal = get_bal(no);
-        filho_direito->bal = get_bal(filho_direito);
+        no->altura = calc_altura(no);
+        filho_direito->altura = calc_altura(filho_direito);
 
         return filho_direito;
     }
@@ -80,40 +75,51 @@ private:
         filho_esquerdo->dir = no;
         no->esq = filho_direito_da_esquerda;
 
-        no->bal = get_bal(no);
-        filho_esquerdo->bal = get_bal(filho_esquerdo);
+        no->altura = calc_altura(no);
+        filho_esquerdo->altura = calc_altura(filho_esquerdo);
 
         return filho_esquerdo;
     }
 
-    No *balancear_no(No *no, No *no_inserido) {
-        int bal_no = get_bal(no), bal_no_inserido = get_bal(no_inserido);
+    No *balancear_no(No *no) {
+        int bal = get_bal(no);
 
-        if (bal_no == 2 && bal_no_inserido >= 0) return rsd(no);
+        if (bal > 1 && get_bal(no->esq) >= 0)
+            return rsd(no);
+        if (bal > 1 && get_bal(no->esq) < 0) {
+            no->esq = rse(no->esq);
+            return rsd(no);
+        }
+        if (bal < -1 && get_bal(no->dir) <= 0)
+            return rse(no);
+        if (bal < -1 && get_bal(no->dir) > 0) {
+            no->dir = rsd(no->dir);
+            return rse(no);
+        }
 
+        return no;
     }
 
-    Retorno inserir_rec(const Valor &valor, No *&no) {
+    bool inserir_rec(const Valor &valor, No *&no) {
         if (no == nullptr) {
             no = new No{ valor, 0, nullptr, nullptr };
-            return Retorno{ true, no };
+            return true;
         } else if (valor < no->valor) {
-            Retorno retorno = this->inserir_rec(valor, no->esq);
-
-            if (!retorno.inseriu) return Retorno{ false, no };  // não inseriu
-
-            if (get_altura(no->esq) > get_altura(no->esq)) no->altura++;  // cresceu
-
-            if (abs(get_bal(no)) <= 1) return Retorno{ true, no };  // está balanceado
-
-
-
-        } else if (valor > no->valor) {
-            return this->inserir_rec(valor, no->dir);
+            bool inseriu = inserir_rec(valor, no->esq);
+            if (!inseriu) return false;
+        } else if (valor > no->valor || this->inserir_repetido) {
+            bool inseriu = inserir_rec(valor, no->dir);
+            if (!inseriu) return false;
         } else {
-            if (!this->inserir_repetido) return { false ,nullptr };
-            return this->inserir_rec(valor, no->dir);
+            if (!this->inserir_repetido) return false;
+            bool inseriu = inserir_rec(valor, no->dir);
+            if (!inseriu) return false;
         }
+
+        no->altura = calc_altura(no);
+
+        no = balancear_no(no);
+        return true;
     }
 
     No *buscar_no_rec(const Valor &valor, No *no) {
@@ -128,25 +134,30 @@ private:
             return false;
         }
 
+        bool removeu = false;
+
         if (valor < no->valor) {
-            return remover_rec(valor, no->esq);
+            removeu = remover_rec(valor, no->esq);
         } else if (valor > no->valor) {
-            return remover_rec(valor, no->dir);
+            removeu = remover_rec(valor, no->dir);
         } else {
             // Caso 1: Nó folha
             if (no->esq == nullptr && no->dir == nullptr) {
                 delete no;
                 no = nullptr;
+                return true;
             }
             // Caso 2: Nó com apenas um filho
             else if (no->esq == nullptr) {
                 No *temp = no;
                 no = no->dir;
                 delete temp;
+                removeu = true;
             } else if (no->dir == nullptr) {
                 No *temp = no;
                 no = no->esq;
                 delete temp;
+                removeu = true;
             }
             // Caso 3: Nó com dois filhos
             else {
@@ -158,14 +169,28 @@ private:
                 // Copiar o valor do sucessor
                 no->valor = menor_direita->valor;
                 // Remover o sucessor
-                return remover_rec(menor_direita->valor, no->dir);
+                removeu = remover_rec(menor_direita->valor, no->dir);
             }
-            return true;
         }
+
+        if (!removeu) return false;
+
+        // Se chegou até aqui, um nó foi removido
+        // Atualizar altura e balancear
+        if (no != nullptr) {
+            no->altura = calc_altura(no);
+            no = balancear_no(no);
+        }
+
+        return true;
     }
 
     int get_altura(const No *no) {
         return no ? no->altura : -1;
+    }
+
+    int calc_altura(const No *no) {
+        return max(get_altura(no->esq), get_altura(no->dir)) + 1;
     }
 
     int get_bal(const No *no) {
@@ -264,6 +289,79 @@ public:
     void pos_ordem() {
         this->pos_ordem_rec(this->raiz);
     }
+
+
+    //secondary function
+    void desenha_arvore_horiz(No *no, int depth, char *path, bool direita, int espacoEntreNiveis = 6)
+    {
+        // stopping condition
+        if (no == nullptr)
+            return;
+
+        // increase spacing
+        depth++;
+
+        // start with direita no
+        desenha_arvore_horiz(no->dir, depth, path, true, espacoEntreNiveis);
+
+        // set | draw map
+        path[depth - 2] = 0;
+
+        if (direita)
+            path[depth - 2] = 1;
+
+        if (no->esq != nullptr)
+            path[depth - 1] = 1;
+
+        // print root after spacing
+        printf("\n");
+
+        for (int i = 0; i < depth - 1; i++)
+        {
+            if (i == depth - 2)
+                printf("+");
+            else if (path[i])
+                printf("|");
+            else
+                printf(" ");
+
+            for (int j = 1; j < espacoEntreNiveis; j++)
+                if (i < depth - 2)
+                    printf(" ");
+                else
+                    printf("-");
+        }
+
+        cout << no->valor << "\n";
+
+        if (depth == 1)
+            cout << "(raiz)\n";
+
+        // vertical espacors below
+        for (int i = 0; i < depth; i++)
+        {
+            if (path[i])
+                printf("|");
+            else
+                printf(" ");
+
+            for (int j = 1; j < espacoEntreNiveis; j++)
+                printf(" ");
+        }
+
+        // go to esquerda no
+        desenha_arvore_horiz(no->esq, depth, path, false, espacoEntreNiveis);
+    }
+
+    //primary function
+    void draw_arvore_hor()
+    {
+        // should check if we don't exceed this somehow..
+        char path[255] = {};
+
+        //initial depth is 0
+        desenha_arvore_horiz(this->raiz, 0, path, false);
+    }
 };
 
 
@@ -307,6 +405,8 @@ int main() {
     printf("Inserir alunos: %f segundos\n", double(total) / CLOCKS_PER_SEC);
     printf("Altura árvore: %d\n", arvore_alunos.altura());
     printf("Tamanho árvore: %zu\n", arvore_alunos.get_tamanho());
+
+    arvore_alunos.draw_arvore_hor();
 
     return 0;
 }
