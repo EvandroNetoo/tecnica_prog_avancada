@@ -4,6 +4,8 @@
 #include <chrono>
 #include <vector>
 #include <random>
+#include <sstream>
+
 
 using namespace std;
 
@@ -24,6 +26,33 @@ private:
     bool direcionado;
     size_t tamanho;
 
+
+    string gerar_dot() {
+        ostringstream dot;
+
+        const string TAB = "    ";
+        const string aresta = direcionado ? " -> " : " -- ";
+        const string tipo_grafo = direcionado ? "digraph" : "graph";
+
+        dot << tipo_grafo << " G {" << endl;
+
+        // Adicionar nós
+        for (size_t i = 0; i < tamanho; i++)
+            dot << TAB << valores[i] << ";" << endl;
+
+
+        // Adicionar arestas
+        for (size_t i = 0; i < tamanho; i++)
+            for (size_t j = 0; j < tamanho; j++)
+                if (matriz[i][j])
+                    if (direcionado || i < j)
+                        dot << TAB << valores[i] << aresta << valores[j] << ";" << endl;
+
+        dot << "}" << endl;
+
+        return dot.str();
+    }
+    
 public:
     Grafo(bool direcionado = false) {
         this->direcionado = direcionado;
@@ -85,7 +114,6 @@ public:
         return (this->tamanho * (this->tamanho - 1)) / 2;
     }
 
-
     static Grafo gerar_aleatorio(bool direcionado, size_t qtd_nos, unsigned int porcentagem_arestas_total = 100) {
         Grafo<Valor> grafo(direcionado);
 
@@ -126,62 +154,38 @@ public:
         return this->valores;
     }
 
-
-    void exportar_para_dot(const string& nome_arquivo) {
+    void exportar_para_dot(const string &nome_arquivo) {
         ofstream arquivo(nome_arquivo);
         if (!arquivo.is_open()) {
             cerr << "Erro ao abrir arquivo: " << nome_arquivo << endl;
             return;
         }
 
-        if (direcionado) {
-            arquivo << "digraph G {" << endl;
-        } else {
-            arquivo << "graph G {" << endl;
-        }
-
-        // Adicionar nós
-        for (size_t i = 0; i < valores.size(); i++) {
-            arquivo << "  " << valores[i] << ";" << endl;
-        }
-
-        // Adicionar arestas
-        for (size_t i = 0; i < tamanho; i++) {
-            for (size_t j = 0; j < tamanho; j++) {
-                if (matriz[i][j]) {
-                    if (direcionado) {
-                        arquivo << "  " << valores[i] << " -> " << valores[j] << ";" << endl;
-                    } else {
-                        if (i <= j) { // Evitar arestas duplicadas em grafos não direcionados
-                            arquivo << "  " << valores[i] << " -- " << valores[j] << ";" << endl;
-                        }
-                    }
-                }
-            }
-        }
-
-        arquivo << "}" << endl;
+        arquivo << gerar_dot();
         arquivo.close();
     }
 
-    void exportar_para_png(const string& nome_arquivo_dot, const string& nome_arquivo_png) {
-        string comando = "dot -Tpng " + nome_arquivo_dot + " -o " + nome_arquivo_png;
-        int resultado = system(comando.c_str());
-        if (resultado != 0) {
-            cerr << "Erro ao executar graphviz. Certifique-se de que está instalado." << endl;
-        } else {
-            cout << "PNG gerado: " << nome_arquivo_png << endl;
+    void exportar_para_png(const string &arquivo_png) {
+        string comando = "dot -Tpng -o " + arquivo_png;
+        FILE *pipe = popen(comando.c_str(), "w");
+        if (!pipe) {
+            cerr << "Erro ao executar Graphviz.\n";
+            return;
         }
+
+        string conteudo_dot = gerar_dot();
+        fwrite(conteudo_dot.c_str(), 1, conteudo_dot.size(), pipe);
+        pclose(pipe);
     }
 };
 
 
 int main() {
 
-    Grafo<int> grafo = Grafo<int>::gerar_aleatorio(false, 3, 100);
+    Grafo<int> grafo = Grafo<int>::gerar_aleatorio(true, 20, 20);
     grafo.print();
     grafo.exportar_para_dot(".dot");
-    grafo.exportar_para_png(".dot", ".png");
+    grafo.exportar_para_png(".png");
 
     return 0;
 }
