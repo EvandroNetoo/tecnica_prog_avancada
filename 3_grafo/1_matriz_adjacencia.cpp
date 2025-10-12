@@ -91,9 +91,6 @@ private:
 public:
     Grafo(bool direcionado = false) {
         this->direcionado = direcionado;
-        this->matriz = vector<vector<bool>>();
-        this->valores = vector<Valor>();
-        this->tamanho = 0;
     }
 
     bool add_no(Valor valor) {
@@ -109,7 +106,6 @@ public:
 
         for (vector<bool> &linha : matriz)
             linha.resize(this->tamanho);
-
 
         return true;
     }
@@ -381,10 +377,11 @@ public:
 
 int main() {
 
-    // Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(true, 5, 40);
-    Grafo<string> grafo = Grafo<string>::a_partir_de_arquivo_dot(".dot");
+    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 5, 40);
+    // Grafo<string> grafo = Grafo<string>::a_partir_de_arquivo_dot(".dot");
+
     grafo.print();
-    // grafo.exportar_para_dot(".dot");
+    grafo.exportar_para_dot(".dot");
     grafo.exportar_para_png(".png");
 
     cout << (grafo.e_conexo() ? "CONEXO" : "NÃO CONEXO") << endl;
