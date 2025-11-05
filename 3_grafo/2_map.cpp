@@ -12,7 +12,7 @@
 #include <set>
 #include <tuple>
 #include <ctime>
-
+#include <algorithm>
 
 using namespace std;
 
@@ -33,7 +33,6 @@ private:
 
     bool direcionado;
     size_t tamanho;
-
 
     string gerar_dot() {
         ostringstream dot;
@@ -219,7 +218,7 @@ public:
             bool first = true;
             for (const auto &[v, peso] : adj) {
                 if (!first) cout << ", ";
-                cout << v << ":" << peso;
+                cout << v << ": " << peso;
                 first = false;
             }
             cout << "}" << endl;
@@ -260,17 +259,87 @@ public:
     bool e_conexo() {
         return direcionado ? digrafo_e_conexo() : grafo_e_conexo();
     }
+
+
+    Grafo<Valor> arvore_geradora_minima_prim() {
+        Grafo<Valor> arvore_geradora_minima;
+        vector<Valor> valores = this->get_valores();
+        if (valores.empty() || !this->e_conexo()) return arvore_geradora_minima;
+
+        unordered_set<Valor> visitados;
+        queue<Valor> a_visitar;
+
+        visitados.insert(valores[0]);
+        arvore_geradora_minima.add_no(valores[0]);
+
+        while (visitados.size() != valores.size()) {
+            tuple<Valor, Valor, float> a_adicionar = { Valor(), Valor(), numeric_limits<float>::infinity() };
+            for (Valor valor : visitados)
+                for (auto &[vizinho, peso] : this->grafo[valor])
+                    if (visitados.find(vizinho) == visitados.end() && peso < get<2>(a_adicionar))
+                        a_adicionar = make_tuple(valor, vizinho, peso);
+
+            arvore_geradora_minima.add_aresta(get<0>(a_adicionar), get<1>(a_adicionar), get<2>(a_adicionar));
+            visitados.insert(get<1>(a_adicionar));
+        }
+
+        return arvore_geradora_minima;
+    }
+
+    Grafo<Valor> arvore_geradora_minima_kruskel() {
+        Grafo<Valor> arvore_geradora_minima;
+        vector<Valor> valores = this->get_valores();
+        if (valores.empty() || !this->e_conexo()) return arvore_geradora_minima;
+
+        unordered_map<Valor, int> subgrafos;
+        vector<tuple<int, Valor, Valor>> arestas;
+
+        int subgrafo_atual = 0;
+        for (auto &[vertice, vizinhos] : this->grafo) {
+            subgrafos[vertice] = ++subgrafo_atual;
+            for (auto &[vizinho, peso] : vizinhos)
+                arestas.push_back(make_tuple(peso, vertice, vizinho));
+        }
+
+        sort(
+            arestas.begin(),
+            arestas.end(),
+            [](const auto &a, const auto &b) {
+                return get<0>(a) < get<0>(b);
+            }
+        );
+
+
+        for (const auto &[peso, v1, v2] : arestas) {
+            if (subgrafos[v1] != subgrafos[v2]) {
+                arvore_geradora_minima.add_aresta(v1, v2, peso);
+                int novo_subgrafo = ++subgrafo_atual;
+                int subgrafo_v1 = subgrafos[v1];
+                int subgrafo_v2 = subgrafos[v2];
+
+                for (auto &[vertice, subgrafo] : subgrafos) {
+                    if (subgrafo == subgrafo_v1 || subgrafo == subgrafo_v2)
+                        subgrafos[vertice] = novo_subgrafo;
+                }
+            }
+        }
+
+        return arvore_geradora_minima;
+    }
 };
 
 
 int main() {
 
-    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(true, 5, 60);
+    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 5, 70);
     grafo.print();
-    grafo.exportar_para_dot(".dot");
-    grafo.exportar_para_png(".png");
+    grafo.exportar_para_dot("grafo.dot");
+    grafo.exportar_para_png("grafo.png");
 
     cout << (grafo.e_conexo() ? "CONEXO" : "NÃO CONEXO") << endl;
+
+    grafo.arvore_geradora_minima_prim().exportar_para_png("prim.png");
+    grafo.arvore_geradora_minima_kruskel().exportar_para_png("kruskel.png");
 
     return 0;
 }
