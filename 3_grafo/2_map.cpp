@@ -326,6 +326,64 @@ public:
 
         return arvore_geradora_minima;
     }
+
+
+    pair<vector<Valor>, float> dijkstra(Valor origem, Valor destino) {
+        unordered_map<Valor, float> distancias;
+        unordered_map<Valor, Valor> anterior;
+        unordered_map<Valor, bool> visitados;
+
+        for (auto &[vertice, _] : this->grafo) {
+            distancias[vertice] = INFINITY;
+            anterior[vertice] = vertice;
+        }
+
+        distancias[origem] = 0;
+
+        Valor menor_no_nao_visitado = origem;
+
+        while (true) {
+            if (menor_no_nao_visitado == destino) break;
+
+            for (auto &[vizinho, peso] : this->grafo[menor_no_nao_visitado]) {
+                float novo_peso = distancias[menor_no_nao_visitado] + peso;
+                if (novo_peso < distancias[vizinho]) {
+                    distancias[vizinho] = novo_peso;
+                    anterior[vizinho] = menor_no_nao_visitado;
+                }
+            }
+
+            visitados[menor_no_nao_visitado] = true;
+
+            float menor_dist = INFINITY;
+            bool achou = false;
+            for (auto &[vertice, distancia] : distancias) {
+                if (!visitados[vertice] && distancia < menor_dist) {
+                    menor_no_nao_visitado = vertice;
+                    menor_dist = distancia;
+                    achou = true;
+                }
+            }
+
+            if (!achou) break;
+        }
+
+        vector<Valor> caminho;
+
+        if (distancias[destino] == INFINITY) {
+            return {caminho, -1};
+        }
+
+        Valor vertice_atual = destino;
+        while (vertice_atual != origem) {
+            caminho.insert(caminho.begin(), vertice_atual);
+            vertice_atual = anterior[vertice_atual];
+        }
+
+        caminho.insert(caminho.begin(), origem);    
+
+        return {caminho, distancias[vertice_atual]};
+    }
 };
 
 
@@ -340,6 +398,31 @@ int main() {
 
     grafo.arvore_geradora_minima_prim().exportar_para_png("prim.png");
     grafo.arvore_geradora_minima_kruskel().exportar_para_png("kruskel.png");
+
+    Grafo<string> grafo_string(false);
+
+    grafo_string.add_aresta("A", "B", 4);
+    grafo_string.add_aresta("A", "C", 2);
+    grafo_string.add_aresta("B", "C", 1);
+    grafo_string.add_aresta("B", "D", 5);
+    grafo_string.add_aresta("C", "D", 8);
+    grafo_string.add_aresta("C", "E", 10);
+    grafo_string.add_aresta("D", "E", 2);
+    grafo_string.add_aresta("D", "F", 6);
+    grafo_string.add_aresta("E", "F", 3);
+
+    grafo_string.exportar_para_png("grafo_string.png");
+    grafo_string.print();
+
+    auto [caminho, distancia] = grafo_string.dijkstra("A", "F");
+
+    cout << "[";
+    for (string vertice : caminho) {
+        cout << vertice << " ";
+    }
+    cout << "]";
+
+    cout << endl;
 
     return 0;
 }
