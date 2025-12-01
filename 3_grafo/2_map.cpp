@@ -30,9 +30,21 @@ class Grafo {
 private:
 
     unordered_map<Valor, unordered_map<Valor, float>> grafo;
+    unordered_map<Valor, size_t> cores_vertice;
 
     bool direcionado;
     size_t tamanho;
+
+    string sizet_para_cor(size_t seedValue) {
+        mt19937 rng(seedValue);
+        uniform_int_distribution<size_t> dist(0, 0xFFFFFF);
+
+        size_t valor = dist(rng);
+        stringstream ss;
+        ss << "#" << hex << setw(6) << setfill('0') << valor;
+
+        return ss.str();
+    }
 
     string gerar_dot() {
         ostringstream dot;
@@ -44,9 +56,13 @@ private:
         dot << tipo_grafo << " G {" << endl;
 
         // Adicionar nós
-        for (auto &[valor, vizinhos] : this->grafo)
-            dot << TAB << valor << ";" << endl;
-
+        for (auto &[valor, vizinhos] : this->grafo) {
+            string cor = "#FFFFFF";
+            if (cores_vertice.count(valor)) {
+                cor = this->sizet_para_cor(cores_vertice[valor]);
+            }
+            dot << TAB << valor << "[style=filled, fillcolor=\"" << cor << "\"]" << ";" << endl;
+        }
 
         // Adicionar arestas
         set<pair<Valor, Valor>> ja_impressos;
@@ -371,7 +387,7 @@ public:
         vector<Valor> caminho;
 
         if (distancias[destino] == INFINITY) {
-            return {caminho, -1};
+            return { caminho, -1 };
         }
 
         Valor vertice_atual = destino;
@@ -380,16 +396,49 @@ public:
             vertice_atual = anterior[vertice_atual];
         }
 
-        caminho.insert(caminho.begin(), origem);    
+        caminho.insert(caminho.begin(), origem);
 
-        return {caminho, distancias[vertice_atual]};
+        return { caminho, distancias[vertice_atual] };
+    }
+
+    void pintar_vertice(Valor vertice, int cor) {
+        cores_vertice[vertice] = cor;
+    }
+
+    size_t menor_cor_possivel_para_vertice(const Valor &vertice) {
+        unordered_set<size_t> cores_vizinhos;
+        cores_vizinhos.reserve(this->grafo[vertice].size());
+
+        for (const auto &[vizinho, peso] : this->grafo[vertice]) {
+            auto it = this->cores_vertice.find(vizinho);
+            if (it != this->cores_vertice.end()) {
+                cores_vizinhos.insert(it->second);
+            }
+        }
+
+        size_t cor = 0;
+        while (cores_vizinhos.count(cor)) {
+            cor++;
+        }
+
+        return cor;
+    }
+
+    Grafo<Valor> coloracao_gulosa_sequencial() {
+        Grafo<Valor> grafo_colorido = *this;
+
+        for (auto [vertice, vizinhos] : grafo) {
+            grafo_colorido.pintar_vertice(vertice, grafo_colorido.menor_cor_possivel_para_vertice(vertice));
+        }
+
+        return grafo_colorido;
     }
 };
 
 
 int main() {
 
-    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 5, 70);
+    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 10, 70);
     grafo.print();
     grafo.exportar_para_dot("grafo.dot");
     grafo.exportar_para_png("grafo.png");
@@ -398,6 +447,7 @@ int main() {
 
     grafo.arvore_geradora_minima_prim().exportar_para_png("prim.png");
     grafo.arvore_geradora_minima_kruskel().exportar_para_png("kruskel.png");
+    grafo.coloracao_gulosa_sequencial().exportar_para_png("coloracao_gulosa_sequencial.png");
 
     Grafo<string> grafo_string(false);
 
