@@ -13,6 +13,7 @@
 #include <tuple>
 #include <ctime>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
@@ -31,6 +32,7 @@ private:
 
     unordered_map<Valor, unordered_map<Valor, float>> grafo;
     unordered_map<Valor, size_t> cores_vertice;
+    map<pair<Valor, Valor>, size_t> cores_aresta;
 
     bool direcionado;
     size_t tamanho;
@@ -69,8 +71,12 @@ private:
         for (auto &[valor, vizinhos] : this->grafo)
             for (auto &[vizinho, peso] : vizinhos) {
                 if (ja_impressos.count({ valor, vizinho })) continue;
+                string cor = "#000000";
+                if (cores_aresta.count({valor, vizinho})) {
+                    cor = this->sizet_para_cor(cores_aresta[{valor, vizinho}]);
+                }
                 dot << TAB << valor << aresta << vizinho;
-                dot << " [label=" << this->grafo[valor][vizinho] << ",weight=" << this->grafo[valor][vizinho] << "]";
+                dot << " [label=" << this->grafo[valor][vizinho] << ",weight=" << this->grafo[valor][vizinho] << ",color=\"" << cor << "\"]";
                 dot << ";" << endl;
                 ja_impressos.insert({ valor, vizinho });
                 if (!this->direcionado) ja_impressos.insert({ vizinho, valor });
@@ -401,8 +407,15 @@ public:
         return { caminho, distancias[vertice_atual] };
     }
 
-    void pintar_vertice(Valor vertice, int cor) {
+    void pintar_vertice(Valor vertice, size_t cor) {
         cores_vertice[vertice] = cor;
+    }
+
+    void pintar_aresta(Valor origem, Valor destino, size_t cor) {
+        cores_aresta[{origem, destino}] = cor;
+        if (!direcionado) {
+            cores_aresta[{destino, origem}] = cor;
+        }
     }
 
     size_t menor_cor_possivel_para_vertice(const Valor &vertice) {
@@ -465,12 +478,12 @@ int main() {
     grafo_string.print();
 
     auto [caminho, distancia] = grafo_string.dijkstra("A", "F");
-
-    cout << "[";
-    for (string vertice : caminho) {
-        cout << vertice << " ";
+    for (size_t i = 0; i < caminho.size() - 1; i ++) {
+        grafo_string.pintar_aresta(caminho[i], caminho[i + 1], 5);
     }
-    cout << "]";
+    grafo_string.pintar_vertice("A", 5);
+    grafo_string.pintar_vertice("F", 5);
+    grafo_string.exportar_para_png("grafo_string_dijkstra_A_F.png");
 
     cout << endl;
 
