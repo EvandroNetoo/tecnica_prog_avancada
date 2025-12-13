@@ -37,8 +37,8 @@ private:
     bool direcionado;
     size_t tamanho;
 
-    string sizet_para_cor(size_t seedValue) {
-        mt19937 rng(seedValue);
+    string sizet_para_cor(size_t seed_value) {
+        mt19937 rng(seed_value * seed_value * seed_value);
         uniform_int_distribution<size_t> dist(0, 0xFFFFFF);
 
         size_t valor = dist(rng);
@@ -72,7 +72,7 @@ private:
             for (auto &[vizinho, peso] : vizinhos) {
                 if (ja_impressos.count({ valor, vizinho })) continue;
                 string cor = "#000000";
-                if (cores_aresta.count({valor, vizinho})) {
+                if (cores_aresta.count({ valor, vizinho })) {
                     cor = this->sizet_para_cor(cores_aresta[{valor, vizinho}]);
                 }
                 dot << TAB << valor << aresta << vizinho;
@@ -104,7 +104,7 @@ private:
 
             for (Valor possivel_vizinho : valores)
                 if (transposto ? this->existe_aresta(possivel_vizinho, valor) : this->existe_aresta(valor, possivel_vizinho)) {
-                    if (visitados.find(possivel_vizinho) == visitados.end()) {
+                    if (!visitados.count(possivel_vizinho)) {
                         a_visitar.push(possivel_vizinho);
                         visitados.insert(possivel_vizinho);
                     }
@@ -295,10 +295,10 @@ public:
         arvore_geradora_minima.add_no(valores[0]);
 
         while (visitados.size() != valores.size()) {
-            tuple<Valor, Valor, float> a_adicionar = { Valor(), Valor(), numeric_limits<float>::infinity() };
+            tuple<Valor, Valor, float> a_adicionar = { Valor(), Valor(), MAXFLOAT };
             for (Valor valor : visitados)
                 for (auto &[vizinho, peso] : this->grafo[valor])
-                    if (visitados.find(vizinho) == visitados.end() && peso < get<2>(a_adicionar))
+                    if (!visitados.count(vizinho) && peso < get<2>(a_adicionar))
                         a_adicionar = make_tuple(valor, vizinho, peso);
 
             arvore_geradora_minima.add_aresta(get<0>(a_adicionar), get<1>(a_adicionar), get<2>(a_adicionar));
@@ -429,7 +429,7 @@ public:
             }
         }
 
-        size_t cor = 0;
+        size_t cor = 1;
         while (cores_vizinhos.count(cor)) {
             cor++;
         }
@@ -437,21 +437,122 @@ public:
         return cor;
     }
 
-    Grafo<Valor> coloracao_gulosa_sequencial() {
-        Grafo<Valor> grafo_colorido = *this;
+    size_t coloracao_gulosa_sequencial() {
 
+        size_t numero_cromatico = 0;
         for (auto [vertice, vizinhos] : grafo) {
-            grafo_colorido.pintar_vertice(vertice, grafo_colorido.menor_cor_possivel_para_vertice(vertice));
+            size_t cor = this->menor_cor_possivel_para_vertice(vertice);
+            if (cor > numero_cromatico) {
+                numero_cromatico = cor;
+            }
+            this->pintar_vertice(vertice, cor);
         }
 
-        return grafo_colorido;
+        return numero_cromatico;
     }
+
+    size_t coloracao_dsatur() {
+        vector<Valor> vertices_em_ordem_graus;
+
+        vertices_em_ordem_graus.reserve(grafo.size());
+
+        for (auto const &par : grafo) {
+            vertices_em_ordem_graus.push_back(par.first);
+        }
+
+        sort(
+            vertices_em_ordem_graus.begin(),
+            vertices_em_ordem_graus.end(),
+            [this](Valor a, Valor b) {
+                return this->grafo[a].size() > this->grafo[b].size();
+            }
+        );
+
+        Valor v_com_maior_grau = vertices_em_ordem_graus[0];
+        this->pintar_vertice(v_com_maior_grau, 1);
+
+        vertices_em_ordem_graus.erase(vertices_em_ordem_graus.begin());
+
+        size_t numero_cromatico = 1;
+        for (Valor vertice : vertices_em_ordem_graus) {
+            size_t cor = this->menor_cor_possivel_para_vertice(vertice);
+            if (cor > numero_cromatico) {
+                numero_cromatico = cor;
+            }
+
+            this->pintar_vertice(vertice, cor);
+        }
+
+        return numero_cromatico;
+    }
+
+    bool proxima_permutacao(vector<Valor> &v) {
+        int n = v.size();
+        int i = n - 2;
+
+        // passo 1: acha i
+        while (i >= 0 && v[i] >= v[i + 1]) i--;
+        if (i < 0) return false; // acabou
+
+        // passo 2: acha j
+        int j = n - 1;
+        while (v[j] <= v[i]) j--;
+
+        // passo 3: troca
+        swap(v[i], v[j]);
+
+        // passo 4: inverte o resto
+        reverse(v.begin() + i + 1, v.end());
+
+        return true;
+    }
+
+    size_t coloracao_gulosa_forca_bruta() {
+        vector<Valor> vertices;
+        vertices.reserve(this->grafo.size());
+
+        for (auto [vertice, vizinhos] : grafo) {
+            vertices.push_back(vertice);
+        }
+
+        size_t menor_numero_cromatico = SIZE_MAX;
+        vector<Valor> melhor_ordem_vertices;
+
+        do {
+            size_t numero_cromatico = 1;
+            for (Valor vertice : vertices) {
+                size_t cor = this->menor_cor_possivel_para_vertice(vertice);
+                if (cor > numero_cromatico) {
+                    numero_cromatico = cor;
+                }
+                if (numero_cromatico >= menor_numero_cromatico) {
+                    continue;
+                }
+                this->pintar_vertice(vertice, cor);
+            }
+            if (numero_cromatico < menor_numero_cromatico) {
+                menor_numero_cromatico = numero_cromatico;
+                melhor_ordem_vertices = vertices;
+            }
+            for (auto [vertice, vizinhos] : grafo) {
+                this->pintar_vertice(vertice, 0);
+            }
+        }
+        while (this->proxima_permutacao(vertices));
+
+        for (Valor vertice : melhor_ordem_vertices) {
+            size_t cor = this->menor_cor_possivel_para_vertice(vertice);
+            this->pintar_vertice(vertice, cor);
+        }
+        return menor_numero_cromatico;
+    }
+
 };
 
 
 int main() {
 
-    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 10, 70);
+    Grafo<int> grafo = Grafo<int>::a_partir_de_aleatorio(false, 10, 50);
     grafo.print();
     grafo.exportar_para_dot("grafo.dot");
     grafo.exportar_para_png("grafo.png");
@@ -460,7 +561,23 @@ int main() {
 
     grafo.arvore_geradora_minima_prim().exportar_para_png("prim.png");
     grafo.arvore_geradora_minima_kruskel().exportar_para_png("kruskel.png");
-    grafo.coloracao_gulosa_sequencial().exportar_para_png("coloracao_gulosa_sequencial.png");
+
+    size_t numero_cromatico;
+
+    Grafo<int> grafo_coloracao_gulosa_sequencial = grafo;
+    numero_cromatico = grafo_coloracao_gulosa_sequencial.coloracao_gulosa_sequencial();
+    grafo_coloracao_gulosa_sequencial.exportar_para_png("coloracao_gulosa_sequencial.png");
+    cout << "Número cromático coloracao_gulosa_sequencial: " << numero_cromatico << endl;
+
+    Grafo<int> grafo_coloracao_dsatur = grafo;
+    numero_cromatico = grafo_coloracao_dsatur.coloracao_dsatur();
+    grafo_coloracao_dsatur.exportar_para_png("coloracao_dsatur.png");
+    cout << "Número cromático coloracao_dsatur: " << numero_cromatico << endl;
+
+    Grafo<int> grafo_coloracao_gulosa_forca_bruta = grafo;
+    numero_cromatico = grafo_coloracao_gulosa_forca_bruta.coloracao_gulosa_forca_bruta();
+    grafo_coloracao_gulosa_forca_bruta.exportar_para_png("coloracao_gulosa_forca_bruta.png");
+    cout << "Número cromático coloracao_gulosa_forca_bruta: " << numero_cromatico << endl;
 
     Grafo<string> grafo_string(false);
 
@@ -478,10 +595,10 @@ int main() {
     grafo_string.print();
 
     auto [caminho, distancia] = grafo_string.dijkstra("A", "F");
-    for (size_t i = 0; i < caminho.size() - 1; i ++) {
+    for (size_t i = 0; i < caminho.size() - 1; i++) {
+        grafo_string.pintar_vertice(caminho[i], 5);
         grafo_string.pintar_aresta(caminho[i], caminho[i + 1], 5);
     }
-    grafo_string.pintar_vertice("A", 5);
     grafo_string.pintar_vertice("F", 5);
     grafo_string.exportar_para_png("grafo_string_dijkstra_A_F.png");
 
